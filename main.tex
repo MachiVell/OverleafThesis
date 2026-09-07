@@ -70,84 +70,142 @@
 \author{}
 \date{}
 
+\documentclass[12pt,oneside]{report}
+
+% -------------------------------------------------
+% PACKAGES
+% -------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{ragged2e}
+
+% -------------------------------------------------
+% PAGE SETTINGS
+% -------------------------------------------------
+\geometry{
+    top=1in,
+    bottom=1in,
+    left=1.5in,
+    right=1in
+}
+
+\onehalfspacing
+
+% -------------------------------------------------
+% DOCUMENT
+% -------------------------------------------------
 \begin{document}
 
-\begin{quote}
-\includegraphics[width=1.84318in,height=1.83333in]{./media/image4.png}
-\end{quote}
+% -------------------------------------------------
+% TITLE PAGE
+% -------------------------------------------------
+\begin{titlepage}
+    \begin{center}
 
-\textbf{A WEB-BASED DISEASE DATA COLLECTION AND MANAGEMENT SYSTEM FOR
-THE ANALYSIS OF GRANULAR AND ANNUAL DATA}
+        % University
+        \vspace*{0.5in}
 
-\textbf{Dominic Emmanuel T. Adona, Desiree S. Dagondon, Carlos Manuel S.
-Pastores}
+        {\large\textbf{ATENEO DE DAVAO UNIVERSITY}}\\[0.15in]
+        {\large\textbf{SCHOOL OF ARTS AND SCIENCES}}\\
+        {\large\textbf{COMPUTER STUDIES CLUSTER}}\\
+        {\large\textbf{DAVAO CITY}}
 
-\textbf{ATENEO DE DAVAO UNIVERSITY}
+        \vfill
 
-\textbf{SCHOOL OF ARTS AND SCIENCES}
+        % Thesis Title
+        {\Large\textbf{
+        DATA-DRIVEN PUBLIC HEALTH DECISION SUPPORT:\\
+        A THREE-TIER ANALYTICS FRAMEWORK FOR\\
+        DENGUE SURVEILLANCE IN DAVAO CITY
+        }}
 
-\textbf{COMPUTER STUDIES CLUSTER}
+        \vfill
 
-\textbf{DAVAO CITY}
+        % Thesis statement
+        {\large
+        A Thesis Presented to the\\
+        Faculty of the\\
+        Computer Studies Cluster\\
+        Ateneo de Davao University
+        }
 
-\begin{quote}
-\textbf{April 2026}
-\end{quote}
+        \vspace{0.35in}
 
-\textbf{A WEB-BASED DISEASE DATA COLLECTION AND MANAGEMENT SYSTEM FOR
-THE ANALYSIS OF GRANULAR AND ANNUAL DATA}
+        {\large
+        In Partial Fulfillment\\
+        of the Requirements for the Degree\\
+        Bachelor of Science in Computer Science
+        }
 
-\textbf{A Thesis Presented to the}
+        \vfill
 
-\textbf{Faculty of the}
+        % Authors
+        {\large\textbf{By}}\\[0.15in]
 
-\textbf{Computer Studies Cluster}
+        {\large
+        Dominic Emmanuel T. Adona\\
+        Desiree S. Dagondon\\
+        Carlos Manuel S. Pastores
+        }
 
-\textbf{Ateneo de Davao University}
+        \vfill
 
-\textbf{In Partial Fulfillment}
+        % Institution and date
+        {\large
+        Ateneo de Davao University\\
+        School of Arts and Sciences\\
+        Computer Studies Cluster
+        }
 
-\textbf{of the Requirements for the Degree}
+        \vspace{0.25in}
 
-\textbf{Bachelor of Science in Computer Science}
+        {\large August 2026}
 
-\textbf{By}
+    \end{center}
+\end{titlepage}
 
-\textbf{Dominic Emmanuel T. Adona, Desiree S. Dagondon, Carlos Manuel S.
-Pastores}
+% -------------------------------------------------
+% BEGIN MAIN THESIS
+% -------------------------------------------------
 
-\textbf{Ateneo de Davao University}
+\pagenumbering{roman}
 
-\textbf{School of arts and science}
+% Example:
+% \chapter*{ABSTRACT}
+% \addcontentsline{toc}{chapter}{ABSTRACT}
 
-\textbf{Computer Studies Cluster}
+% \tableofcontents
+% \listoffigures
+% \listoftables
 
-\textbf{April 2026}
 
 \subsubsection{\texorpdfstring{\textbf{Table of
 Contents}}{Table of Contents}}\label{table-of-contents}
 
 \textbf{ABSTRACT}
-............................................................................................
-\textbf{7}
+.....................................................................................................
+\textbf{6}
 
 \textbf{CHAPTER 1: INTRODUCTION}
 
 \textbf{1.1 Background of the Study}
 ........................................................................
-\textbf{9}
+\textbf{8}
 
 \textbf{1.2 Statement of the Problem}
 ......................................................................
-\textbf{11}
+\textbf{10}
 
 \textbf{1.2.1 General Problem}
 .................................................................................
-\textbf{11}
+\textbf{10}
 
 \textbf{1.2.2 Specific Problems}
 ...............................................................................
-\textbf{11}
+\textbf{10}
 
 \textbf{1.3 Objectives of the Study}
 .........................................................................
@@ -163,127 +221,172 @@ Contents}}{Table of Contents}}\label{table-of-contents}
 
 \textbf{1.4 Significance of the Study}
 .......................................................................
-\textbf{13}
+\textbf{14}
 
 \textbf{1.5 Scope and Limitations}
-...........................................................................
-\textbf{14}
+............................................................................
+\textbf{16}
 
 \textbf{CHAPTER 2: REVIEW OF RELATED WORKS}
 
-\textbf{2.1 The Philippine Digital Health Landscape and Barangay
-Realities} .... \textbf{15}
+\textbf{2.1 Municipal Epidemiological Surveillance and Barangay
+Realities} ...... \textbf{18}
 
-\textbf{2.2 Technologies for Granular Health Data Management}
-......................... \textbf{16}
+\textbf{2.1.1 The Philippine Health and LSC}
+........................................................... \textbf{18}
 
-\textbf{2.2.1 From Manual Registers to Digital Ingestion and Governance}
-........ \textbf{16}
+\textbf{2.1.2 Dengue Epidemiology and Granular Surveillance in Davao
+City} ..... \textbf{18}
 
-\textbf{2.2.2 Relational Database Architectures and Data Normalization}
-........... \textbf{16}
+\textbf{2.2 Technologies and Methodologies for Dengue Health
+Informatics} ...... \textbf{19}
 
-\textbf{2.2.3 Local-First Storage and Edge Computing}
-........................................ \textbf{17}
+\textbf{2.2.1 Primary Data Digitization and Schema Normalization}
+...................... \textbf{19}
 
-\textbf{2.2.4 Python-Based Computational Pipelines for Reporting}
-................... \textbf{18}
+\textbf{2.2.2 Edge Execution, Local-First Storage, and Processing
+Pipelines} ..... \textbf{20}
 
-\textbf{2.2.5 Analysis of Existing Systems and Research Gaps}
-......................... \textbf{18}
+\textbf{2.2.3 Computational Analytics Paradigms for Disease
+Surveillance} ........ \textbf{21}
 
-\textbf{2.2.6 Technical Implementations for Database Security}
-.......................... \textbf{19}
+\textbf{2.2.4 Health Data Security, Regulatory Compliance, and
+Governance} ...... \textbf{23}
 
-\textbf{2.2.7 Data Governance and Lifecycle Protocols}
-................................ \textbf{20}
-
-\textbf{2.2.8 Synthesis and Proposed Solution}
-.................................................... \textbf{21}
-
-\textbf{2.3 Theoretical Foundations and Frameworks}
-......................................... \textbf{22}
-
-\textbf{2.3.1 Theory of Digital Health Resilience (Sustainability)}
-....................... \textbf{22}
-
-\textbf{2.3.2 Relational Data Integrity and Normalization Theory}
-...................... \textbf{23}
-
-\textbf{2.3.3 Technology Acceptance Model (TAM) and Usability Theory}
+\textbf{2.2.5 Synthesis, Research Gaps, and Proposed Technical Solution}
 ........ \textbf{24}
 
+\subsubsection{\texorpdfstring{ \textbf{2.3 Theoretical Foundations and
+Frameworks}.............................................
+\textbf{26}}{ 2.3 Theoretical Foundations and Frameworks............................................. 26}}\label{theoretical-foundations-and-frameworks.............................................-26}
+
+\textbf{2.3.1 Local-First Software Architecture Paradigm}
+..................................... \textbf{26}
+
+\textbf{2.3.1 Local-First Software Architecture Paradigm Figure}
+......................... \textbf{27}
+
+\textbf{2.3.2 Relational Database Theory}
+..................................................................
+\textbf{28}
+
+\textbf{2.3.2 Relational Database Theory Figure}
+...................................................... \textbf{29}
+
+\textbf{2.3.3 Technology Acceptance Model (TAM) and Usability Theory}
+.............. \textbf{30}
+
+\textbf{2.3.3 TAM and Usability Theory Figure}
+.......................................................... \textbf{30}
+
 \textbf{2.3.4 Privacy Calculus Theory}
-..............................................................
-\textbf{25}
+........................................................................
+\textbf{31}
+
+\textbf{2.3.4 Privacy Calculus Theory Figure}
+............................................................ \textbf{32}
 
 \textbf{CHAPTER 3: METHODOLOGY}
 
 \textbf{3.1 Conceptual Framework}
-.......................................................................
-\textbf{27}
-
-\textbf{3.1.1 Input Stage: Manual Data Ingestion}
-................................................ \textbf{28}
-
-\textbf{3.1.2 Process Stage: Local-First Sync and Python Pipelines}
-............... \textbf{28}
-
-\textbf{3.1.3 Output Stage: Web Interface and Annual Reports}
-........................ \textbf{28}
-
-\textbf{3.2 Operational Framework}
-.......................................................................
-\textbf{29}
-
-\textbf{3.2.1 Phase I: Data Acquisition and Local Storage}
-................................ \textbf{30}
-
-\textbf{3.2.2 Phase II: Synchronization and Compatibility Logic}
-...................... \textbf{30}
-
-\textbf{3.2.3 Phase III: Processing and Web Interface}
-........................................ \textbf{31}
-
-\textbf{3.2.4 Phase IV: Output Generation and Operational Reporting}
-............. \textbf{31}
-
-\textbf{REFERENCES}
-....................................................................................
+..........................................................................
 \textbf{33}
 
-\section{\texorpdfstring{\textbf{ABSTRACT}}{ABSTRACT}}\label{abstract}
+\textbf{3.1 Conceptual Framework Figure}
+..............................................................
+\textbf{33}
 
-The management of community-level health intelligence in the Philippines
-is increasingly defined by the transition toward high-resolution digital
-data architectures. Modern public health informatics frameworks
-emphasize the necessity of managing "geographically disaggregated" data
-to ensure precision in tracking localized disease trends. Current
-literature highlights that while centralized national platforms exist
-for regional policy, community-level data management often relies on
-manual, paper-based recording or fragmented spreadsheets, leading to
-challenges in data normalization and longitudinal reporting. However, a
-significant gap remains in the availability of localized digital
-infrastructure that can capture case-specific variables at the point of
-origin while ensuring data accessibility in varied network environments.
-Consequently, this "data siloing" effect limits the capacity for
-systematic organization and the automated aggregation of annual health
-records. To address these technical limitations, this study proposes a
-\textbf{Web-Based Management System} utilizing a \textbf{Relational
-Database Architecture} developed with \textbf{Python and SQLite},
-incorporating a data sensitivity strategy and \textbf{Role-Based Access
-Control (RBAC)} to secure private records. This system implements a
-\textbf{"local-first" storage model} to facilitate the collection of
-granular disease data and ensure high system availability regardless of
-internet connectivity. The proposed framework provides a functional
-interface for the digitization of manual community health logs,
-establishing a structured digital repository for the retrieval and
-analysis of annual barangay health data.
+\textbf{3.1.1 Input Stage}
+...........................................................................................
+\textbf{34}
 
-\textbf{Keywords:} \emph{Public Health Informatics, Granular Disease
-Data, Relational Database, Local-First Architecture, Python, SQLite,
-Data Normalization, Barangay Health Surveillance, Data Privacy,
-Role-Based Access Control}
+\textbf{3.1.2 Process Stage}
+......................................................................................
+\textbf{34}
+
+\textbf{3.1.3 Output Stage}
+........................................................................................
+\textbf{35}
+
+\textbf{3.2 Operational Framework}
+..........................................................................
+\textbf{36}
+
+\textbf{3.2 Operational Framework Figure}
+..............................................................
+\textbf{36}
+
+\textbf{3.2.1 Phase I: Data Acquisition, Schema Mapping, and Local
+Storage} ... \textbf{37}
+
+\textbf{3.2.2 Phase II: Network Connectivity \& Synchronization Logic}
+............... \textbf{38}
+
+\textbf{3.2.3 Phase III: Processing Pipeline and Web
+Interface}........................... \textbf{38}
+
+\textbf{3.2.4 Phase IV: Automated Output and Reporting}
+.................................... \textbf{40}
+
+\textbf{3.3 System Data Description \& Case Study Specification}
+........................ \textbf{41}
+
+\textbf{3.3.1 Dataset Scale and Potential Data Characteristics}
+............................ \textbf{41}
+
+\textbf{3.3.2 Preprocessing, Filtering, and Data Structuring}
+................................ \textbf{42}
+
+\textbf{3.3.3 Model Formulation and Sensitivity Management}
+............................. \textbf{43}
+
+\textbf{3.3.4 Case Study Environment and Scope Boundaries}
+............................. \textbf{44}
+
+\textbf{3.3.5 Mathematical Assumptions}
+.................................................................
+\textbf{45}
+
+\textbf{REFERENCES}
+................................................................................................
+\textbf{47}
+
+\begin{quote}
+\textbf{ABSTRACT}
+\end{quote}
+
+The governance of municipal epidemiological intelligence is increasingly
+characterized by a transition toward high-resolution, decentralized
+digital architectures. Within the Philippine health ecosystem, local
+units navigate significant operational hurdles stemming from fragmented
+legacy registries, manual record-keeping protocols, and structural data
+unstandardization, which collectively impede proactive surveillance and
+rapid outbreak detection. To mitigate these processing bottlenecks, this
+investigation develops a Web-Based Decision Support System leveraging a
+Three-Tier Analytics Framework optimized for localized Dengue monitoring
+in Davao City (2023-2026). Engineered with a Python-based computational
+pipeline and a relational SQLite architecture, the platform utilizes a
+local-first storage model and Role-Based Access Control (RBAC) to
+maintain data integrity in resource-limited edge deployments while
+ensuring compliance with the Data Privacy Act (RA 10173).
+
+The system\textquotesingle s processing core executes across three
+integrated layers: Tier 1 Descriptive Analytics normalizes granular
+attributes to visualize spatial heatmaps and temporal curves by
+morbidity week and barangay; Tier 2 Predictive Analytics applies 75th
+percentile moving regression and historical epidemic thresholds to
+establish statistical surge trajectories; and Tier 3 Prescriptive
+Analytics automates rule-based early warning alert triggers (Green,
+Yellow, Red) to operationalize targeted vector interventions and
+resource management. By shifting municipal surveillance from
+retrospective reporting to proactive decision intelligence, the research
+provides a scalable digital framework for high-resolution health
+tracking.
+
+Keywords: Public Health Informatics, Dengue Surveillance, Three-Tier
+Analytics Framework, Early Warning Systems, Statistical Epidemic
+Thresholds, Local-First Architecture, Python, SQLite, Data Privacy Act
+(RA 10173), Role-Based Access Control
 
 \section{\texorpdfstring{\textbf{CHAPTER 1:
 INTRODUCTION}}{CHAPTER 1: INTRODUCTION}}\label{chapter-1-introduction}
@@ -291,451 +394,495 @@ INTRODUCTION}}{CHAPTER 1: INTRODUCTION}}\label{chapter-1-introduction}
 \subsubsection{\texorpdfstring{\textbf{1.1 Background of the
 Study}}{1.1 Background of the Study}}\label{background-of-the-study}
 
-The management of public health information systems is increasingly
-defined by the transition toward high-resolution, decentralized data
-architectures. Modern health informatics frameworks emphasize the
-necessity of "geographical disaggregation," where data is managed at the
-most granular level to ensure precision in health trend analysis
-(Glennie et al., 2023). Within the Philippine digital health landscape,
-the integration of community-level surveillance into broader national
-frameworks depends on the adoption of interoperable digital standards
-(Sylim et al., 2022). In highly urbanized centers such as \textbf{Davao
-City}, the complexity of monitoring 182 distinct barangays necessitates
-a transition from aggregate reports to granular, community-level
-monitoring to track active disease cases effectively (\textbf{Otero et
-al., 2022}).
+The governance of municipal epidemiological data is increasingly defined
+by a shift toward high-resolution, localized digital architectures.
+Modern health informatics paradigms emphasize spatial and temporal
+disaggregation, wherein surveillance is executed at granular
+administrative levels to capture localized transmission dynamics. Within
+the Philippine digital health ecosystem, consolidating community-level
+surveillance into national frameworks depends on implementing
+interoperable digital standards (Sylim et al., 2022). In highly
+urbanized centers such as Davao City, managing 182 distinct barangays
+involves significant operational complexity, necessitating a transition
+from aggregate monthly reporting to micro-level tracking to monitor
+active Dengue transmission (Otero et al., 2022).
 
-From a technical perspective, localized data management often utilizes
-traditional recording methods or disparate spreadsheets, which lead to
-challenges in data normalization and synchronization. As identified by
-Kaboré et al. (2022), the sustainability of digital health in
-low-resource settings is frequently compromised by unreliable
-infrastructure and technical barriers. Furthermore, the effectiveness of
-health dashboards is highly dependent on design components that align
-with the specific operational workflows and digital literacy of the
-intended end-users (Whitehead et al., 2023; De Mesa et al., 2023).
-Consequently, the absence of a unified local database limits the
-capacity for longitudinal trend analysis and the systematic organization
-of health records over time.
+At the primary care level, localized health data management frequently
+relies on unstandardized spreadsheets or manual registers, creating
+structural normalization and synchronization bottlenecks (Kaboré et al.,
+2022). Recent evaluations of Philippine Dengue surveillance indicate
+that traditional passive reporting utilizing multi-year moving averages
+fails to detect seasonal surges, as historical baselines are distorted
+by epidemiological anomalies (Eligado et al., 2024). Furthermore,
+provincial spatial analyses demonstrate that Dengue resurgence exhibits
+distinct geographic clustering, reinforcing the requirement for
+localized time-series analytical models (Olana et al., 2025).
 
-This study implements a Web-Based Management System utilizing a
-Relational Database Architecture developed with Python and SQLite. To
-ensure high system availability in varied network environments, the
-study adopts a "local-first" storage model, a methodology validated for
-maintaining data integrity in Philippine rural health settings (Paluyo
-et al., 2022). This architecture provides a structured digital
-environment for the collection of Granular and Annual Disease Data,
-utilizing relational parameters to link individual cases with broader
-temporal summaries. By establishing this functional interface, the
-system facilitates the transition from manual record-keeping to a
-structured digital repository.
+To bridge predictive analytics with health interventions, statistical
+epidemic thresholds are required to trigger early warning mechanisms.
+Non-parametric percentile thresholding models provide higher sensitivity
+for detecting abnormal case surges compared to standard mean-based
+models, which frequently generate inflated baselines during epidemic
+cycles (Ouédraogo et al., 2023). Implementing dynamic percentile
+thresholds on routine surveillance data balances sensitivity and
+specificity, enabling real-time detection without excessive false alarms
+(Thayer et al., 2025). When integrated with rule-based decision support
+logic, these statistical thresholds provide personnel with actionable
+protocols, reducing cognitive load during high-caseload periods (Nguyen
+\& Ming, 2023; Papadopoulos et al., 2022).
+
+To address these data processing constraints, this study presents a
+Web-Based Public Health Decision Support System incorporating a
+Three-Tier Analytics Framework tailored for Dengue surveillance in Davao
+City (2023-2026). Developed using a Python processing pipeline and a
+relational SQLite architecture, the system operates on a local-first
+deployment model to maintain data availability in low-connectivity
+environments (Paluyo et al., 2022) while adhering to the Philippine Data
+Privacy Act of 2012 (RA 10173). By operationalizing descriptive
+spatial-temporal modeling, predictive regression thresholds, and
+prescriptive alert triggers, the system transitions municipal
+surveillance from retrospective reporting to decision-support
+intelligence.
 
 \subsubsection{\texorpdfstring{\textbf{1.2 Statement of the
 Problem}}{1.2 Statement of the Problem}}\label{statement-of-the-problem}
 
-\textbf{1.2.1 General Problem}
+\subsubsection{\texorpdfstring{\textbf{1.2.1 General
+Problem}}{1.2.1 General Problem}}\label{general-problem}
 
-This research aims to develop a Web-Based Management System for the
-Collection and Analysis of Granular and Annual Barangay Disease Data to
-resolve the technical inefficiencies between manual community-level
-record-keeping and high-resolution health monitoring in Barangay Matina
-Crossing, Davao City.
+The primary objective of this investigation is the engineering and
+rigorous evaluation of a Web-Based Decision Support System utilizing a
+Three-Tier Analytics Framework for high-resolution Dengue monitoring in
+Davao City (2023-2026). This architecture specifically mitigates
+operational bottlenecks associated with manual logbook protocols, latent
+outbreak identification, and the lack of interoperable digital standards
+within municipal health units.
 
-\textbf{1.2.2 Specific Problems}
+\subsubsection{\texorpdfstring{\textbf{1.2.2 Specific
+Problems}}{1.2.2 Specific Problems}}\label{specific-problems}
+
+This study addresses the following technical research questions:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  How can unstructured granular case attributes (consultation\_date,
-  purok\_id, age, gender, disease\_id, and symptoms) across target
-  disease vectors (\textbf{Dengue, Leptospirosis, and Tuberculosis}) be
-  integrated into a normalized relational schema to maintain data
-  integrity and facilitate longitudinal annual reporting?
+  How can fragmented granular case variables (e.g., temporal markers,
+  spatial attributes, and clinical classifications) be mapped into a
+  normalized relational schema to establish a longitudinal
+  epidemiological baseline?
 \item
-  How will a local-first storage architecture using an embedded SQLite
-  database influence system performance regarding data retrieval query
-  latency and record accessibility in an offline-capable environment?
+  To what extent does the Three-Tier Analytics Engine successfully
+  execute its computational core across:
+
+  \begin{itemize}
+  \item
+    Tier 1 Descriptive Analytics: The visualization of localized spatial
+    heatmaps and temporal distribution curves at the barangay level;
+  \item
+    Tier 2 Predictive Analytics: The application of 75th percentile
+    moving regression and historical epidemic thresholds to define surge
+    trajectories; and
+  \item
+    Tier 3 Prescriptive Analytics: The automation of rule-based early
+    warning alert triggers (Green, Yellow, Red) for targeted
+    intervention?
+  \end{itemize}
 \item
-  What is the measurable accuracy rate of the Python-based data pipeline
-  in generating automated annual health reports compared to manually
-  consolidated historical records?
+  What are the performance implications of utilizing a local-first
+  SQLite architecture concerning computational query latency and
+  asynchronous record synchronization in resource-limited edge
+  deployments?
 \item
-  What are the quantifiable indicators in a standardized System
-  Usability Scale (SUS) test regarding the web interface's effectiveness
-  for Barangay Health Workers (BHWs) and Administrators in managing
-  localized disease surveillance?
+  What is the level of technological acceptance among Barangay Health
+  Workers (BHWs) and municipal officials as measured through the
+  standardized System Usability Scale (SUS) framework?
 \end{enumerate}
 
 \subsubsection{\texorpdfstring{\textbf{1.3 Objectives of the
 Study}}{1.3 Objectives of the Study}}\label{objectives-of-the-study}
 
-\textbf{1.3.1 General Objective}
+\paragraph{\texorpdfstring{\textbf{1.3.1 General
+Objective}}{1.3.1 General Objective}}\label{general-objective}
 
-The main objective of this study is to develop a Web-Based Management
-System for the Collection and Analysis of Granular and Annual Barangay
-Disease Data to provide a structured digital framework and local-first
-architecture for the digitization of community health records and
-localized epidemiological surveillance.
+The main objective of this study is to develop and evaluate a Web-Based
+Public Health Decision Support System incorporating a Three-Tier
+Analytics Framework to provide a structured digital architecture and
+local-first data processing engine for localized Dengue surveillance in
+Davao City (2023-2026).
 
 \textbf{1.3.2 Specific Objectives}
+
+This research aims to:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  To design and implement a normalized relational database schema that
-  maps granular patient-level variables (consultation\_date, purok\_id,
-  age, gender, disease\_id, symptoms) for Dengue, Leptospirosis, and
-  Tuberculosis into structured annual health summaries.
+  Design and implement a normalized relational database schema that
+  ingests and maps variable multi-year Dengue patient attributes
+  (Morbidity Month, District, Barangay, Age, Sex, Clinical
+  Classification, Case Classification, and Morbidity Week) from 16,391
+  raw surveillance records (2023--2026) into a standardized,
+  de-identified longitudinal data structure.
 \item
-  To evaluate the execution efficiency of the local-first SQLite
-  architecture based on query response times (fetching latency) and
-  offline system availability during local network disconnection.
+  Construct and evaluate a Three-Tier Analytics Engine capable of
+  executing:
+
+  \begin{itemize}
+  \item
+    Tier 1 (Descriptive Analytics): Processing localized case records to
+    generate spatial heatmaps and temporal distribution curves at the
+    barangay and district levels (focusing on Talomo District for
+    localized evaluation);
+  \item
+    Tier 2 (Predictive Analytics): Applying 75th percentile moving
+    regression and historical epidemic deviation thresholds to track
+    weekly surge trajectories; and
+  \item
+    Tier 3 (Prescriptive Analytics): Operationalizing threshold outputs
+    into automated, rule-based early warning alert triggers (Green,
+    Yellow, Red) to guide vector control interventions.
+  \end{itemize}
 \item
-  To quantify the accuracy rate of the Python automated reporting
-  pipeline by benchmarking system-aggregated metrics against validated
-  manual historical logs from 2023 to 2026.
+  Measure system execution performance of the local-first SQLite
+  database architecture, focusing on data retrieval query latency (in
+  milliseconds) during offline record entry and asynchronous cloud
+  database synchronization stability.
 \item
-  To assess the system's interface usability among Barangay Health
-  Workers (BHWs) and Administrators using standardized task-completion
-  rates and System Usability Scale (SUS) metrics.
+  Assess user acceptability and system usability among Barangay Health
+  Workers (BHWs) and Municipal Health Officers using standardized
+  task-completion evaluations and the System Usability Scale (SUS)
+  framework.
 \end{enumerate}
 
 \subsubsection{\texorpdfstring{\textbf{1.4 Significance of the
 Study}}{1.4 Significance of the Study}}\label{significance-of-the-study}
 
-The primary beneficiaries of this system are \textbf{Local Health Units}
-and \textbf{Barangay Health Workers (BHWs)} in Davao City. By providing
-a high-resolution tool for localized disease surveillance, the system
-mitigates the impact of infrastructure instability and the "digital
-divide" prevalent in the Philippines (\textbf{Baticulon et al., 2021}).
-Furthermore, city health officials can utilize the aggregated annual
-data to optimize resource allocation and public health interventions
-based on validated community-level trends (\textbf{Thakur et al.,
-2023}), shifting the workflow from reactive reporting to
-evidence-grounded monitoring.
+This investigation offers substantive technical and practical
+contributions to municipal health governance, public health informatics,
+and global sustainable development objectives.
 
-This research contributes to the field of \textbf{Public Health
-Informatics} by demonstrating a reproducible technical framework for
-integrating granular, case-level data with longitudinal annual records
-(\textbf{Glennie et al., 2023}). By utilizing a \textbf{local-first
-architecture} with SQLite, the study provides a methodology for
-maintaining high data availability in varied network environments
-(\textbf{Paluyo et al., 2022}; \textbf{Jazaeri et al., 2023}).
-Additionally, the use of Python-based pipelines for automated reporting
-establishes a model for transforming unstructured manual logs into a
-structured relational database capable of high-accuracy temporal trend
-analysis (\textbf{Krishnapur et al., 2026}; \textbf{Izonin et al.,
-2022}).
+For local administrative units and primary care personnel, the platform
+provides Municipal Health Officers and Barangay Health Workers (BHWs)
+with a structured digital architecture to manage granular Dengue
+registries at the community level. By leveraging a local-first
+architecture, the system ensures operational continuity for record
+ingestion and reporting during network instability (Paluyo et al.,
+2022). Furthermore, the automation of localized spatial heatmaps and
+temporal distribution curves facilitates a systematic transition toward
+proactive epidemiological monitoring across Davao City's 182 barangays
+(Olana et al., 2025).
 
-This study directly supports \textbf{SDG 3: Good Health and Well-being},
-specifically Target 3.D, which aims to strengthen the capacity for early
-warning, risk reduction, and management of health risks. By digitizing
-community health records, the system improves the accuracy of local
-disease tracking.
+Within the domains of health informatics and software engineering, this
+research validates a reproducible digital framework for integrating
+case-level attributes with statistical epidemic thresholds in
+resource-limited edge deployments. Utilizing a synchronized SQLite
+architecture and Python computational pipelines, the study provides
+empirical benchmarks for query latency and offline data integrity
+(Obiri-Tetteh et al., 2021). The application of 75th percentile moving
+regression and prescriptive alert logic serves as an adaptable design
+model for localized decision support systems (Ouédraogo et al., 2023;
+Thayer et al., 2025).
 
-Furthermore, it aligns with \textbf{SDG 9: Industry, Innovation, and
-Infrastructure} by introducing resilient, offline-capable digital
-infrastructure to resource-limited settings, and \textbf{SDG 17:
-Partnerships for the Goals} by enhancing the availability of
-high-quality, timely, and reliable disaggregated data for localized
-policy-making.
+Finally, this investigation advances several United Nations Sustainable
+Development Goals (SDGs). It operationalizes SDG 3 (Target 3.D) by
+reinforcing early warning capacities through dynamic surge detection. It
+also contributes to SDG 9 by implementing resilient, offline-capable
+digital infrastructure at the primary care level, while supporting SDG
+17 by enhancing the availability of disaggregated, high-resolution
+health intelligence for municipal planning.
 
 \subsubsection{\texorpdfstring{\textbf{1.5 Scope and
 Limitations}}{1.5 Scope and Limitations}}\label{scope-and-limitations}
 
-The primary scope of this study is the development of a Web-Based
-Management System for the structured collection and analysis of Granular
-and Annual Barangay Disease Data in Davao City, specifically focused on
-\textbf{Dengue, Leptospirosis, and Tuberculosis (TB)}. The system is
-built using a Relational Database Architecture implemented with Python
-and SQLite to facilitate local-first data storage and retrieval.
+The technical scope of this study comprises the development and
+evaluation of a Web-Based Public Health Decision Support System
+incorporating a Three-Tier Analytics Framework for localized Dengue
+surveillance in Davao City, utilizing case data from 2023 to 2026. The
+software architecture consists of a Python analytics processing engine
+and a relational SQLite database configured for local-first operations
+to support local data query execution during network disconnection
+(Paluyo et al., 2022).
 
-In this context, \textbf{Granular Data} refers to individual
-consultation records containing seven standardized parameters:
-consultation\_date, barangay (defaulted to \emph{Matina Crossing}),
-purok\_id, age, gender, disease\_id (Dengue, Leptospirosis, TB), and
-symptoms. Conversely, \textbf{Annual Data} refers to the mathematically
-aggregated longitudinal summaries covering 2023 to 2026 required for
-formal City Health Office (CHO) reporting.
+The dataset is defined by eight standardized Dengue case variables:
+Morbidity Week, Morbidity Month, District, Barangay, Age, Sex, Clinical
+Classification, and Case Classification. The system processes these
+attributes through three analytical components: Tier 1 Descriptive
+analytics generating spatial heatmaps and temporal distribution curves;
+Tier 2 Predictive analytics calculating 75th percentile moving
+regression and historical deviation thresholds (Ouédraogo et al., 2023;
+Thayer et al., 2025); and Tier 3 Prescriptive analytics executing
+rule-based alert triggers (Green, Yellow, and Red). Data management
+complies with the Philippine Data Privacy Act of 2012 (RA 10173) by
+excluding personally identifiable information, including patient names,
+street addresses, and contact details. Access governance is structured
+through Role-Based Access Control (RBAC), defining operational
+privileges for Barangay Health Workers (BHWs) and Municipal Health
+Officers.
 
-To secure private health records and ensure compliance with the Data
-Privacy Act of 2012 (RA 10173), the system enforces strict
-de-identification protocols by excluding patient names and contact
-details at entry. System governance is enforced through
-\textbf{Role-Based Access Control (RBAC),} defining two primary
-operational roles:
-
-\begin{itemize}
-\item
-  \textbf{Barangay Health Workers (BHWs):} Restricted to granular case
-  entry, logbook viewing, and local summary monitoring.
-\item
-  \textbf{Administrators (CHO/Supervisors):} Authorized for full Create,
-  Read, Update, and Delete (CRUD) operations on disease logs, as well as
-  system user management, role assignments, and account
-  activation/blocking via an is\_active status flag.
-\end{itemize}
-
-Methodologically, the system is delimited to community-level health data
-processing and relies on the accuracy of data inputted by BHWs. The
-system functions as a surveillance and storage tool; it excludes
-clinical diagnostic capabilities, real-time biological sensors, and
-high-level predictive modeling. Offline functionality is restricted to
-local data entry, record fetching, and local database operations,
-requiring network connectivity only for administrative updates or
-centralized synchronization. Finally, the geographic scope is delimited
-to Barangay Matina Crossing in Davao City, and the study does not
-evaluate patient clinical outcomes or healthcare provider competencies.
-
-\subsection{\texorpdfstring{\textbf{CHAPTER 2: REVIEW OF RELATED
-WORKS}}{CHAPTER 2: REVIEW OF RELATED WORKS}}\label{chapter-2-review-of-related-works}
-
-\subsubsection{\texorpdfstring{\textbf{2.1 The Philippine Digital Health
-Landscape and Barangay
-Realities}}{2.1 The Philippine Digital Health Landscape and Barangay Realities}}\label{the-philippine-digital-health-landscape-and-barangay-realities}
-
-The management of public health information in the Philippines is
-characterized by a significant tension between centralized national
-strategies and the operational realities of local health units. While
-the Philippine National eHealth Strategy advocates for integrated and
-interoperable digital systems (\textbf{Sylim et al., 2022}), the
-implementation at the community level remains fragmented. \textbf{De
-Mesa et al. (2023)} highlight that Barangay Health Workers (BHWs) are
-the backbone of this system, yet they operate within a "digital divide"
-characterized by infrastructure instability and a lack of specialized
-technical tools (\textbf{Baticulon et al., 2021}).
-
-In highly urbanized centers like \textbf{Davao City}, the complexity of
-monitoring 182 distinct barangays---ranging from densely populated urban
-centers to remote rural zones---creates a "data siloing" effect.
-\textbf{Otero et al. (2022)} demonstrate that while pilot studies in
-wastewater-based epidemiology provide high-level city data, there is a
-critical need for granular, case-specific monitoring at the barangay
-level to track active disease trends effectively. Current literature
-suggests that until digital tools are grounded in the lived experiences
-and connectivity constraints of BHWs (\textbf{Hartigan-Go et al.,
-2024}), community-level health intelligence will remain largely manual
-and retrospective.
+System evaluation is limited to software performance metrics,
+specifically database query latency (in milliseconds), offline-to-online
+data synchronization consistency, and user interface usability measured
+through standard System Usability Scale (SUS) benchmarks. The system
+does not include automated diagnostic algorithms, clinical decision
+support for patient treatment, or biological sensor integration. Offline
+database capabilities are limited to local record entry, querying, and
+reporting, requiring active network connectivity solely for central
+administrative database synchronization. Spatial and temporal analytical
+functions process municipal-level records across Davao City, while user
+usability evaluations are conducted with health personnel operating
+within the Talomo District (Otero et al., 2022).
 
 \subsubsection{}\label{section}
 
 \subsubsection{}\label{section-1}
 
-\subsubsection{\texorpdfstring{\textbf{2.2 Technologies for Granular
-Health Data
-Management}}{2.2 Technologies for Granular Health Data Management}}\label{technologies-for-granular-health-data-management}
+\subsection{\texorpdfstring{\textbf{CHAPTER 2: REVIEW OF RELATED
+WORKS}}{CHAPTER 2: REVIEW OF RELATED WORKS}}\label{chapter-2-review-of-related-works}
 
-\paragraph{\texorpdfstring{\textbf{2.2.1 From Manual Registers to
-Digital Ingestion and
-Governance}}{2.2.1 From Manual Registers to Digital Ingestion and Governance}}\label{from-manual-registers-to-digital-ingestion-and-governance}
+\textbf{2.1 Municipal Epidemiological Surveillance and Barangay
+Realities}
 
-The transition from paper-based logbooks to digital systems is not
-merely a change in medium but a shift in governance capability.
-\textbf{Thakur et al. (2023)} argue that digitizing manual health
-registers enables "meso-level" health officers to make data-driven
-decisions rather than relying on delayed aggregate summaries. However,
-for digital ingestion to be successful in resource-limited settings,
-systems must account for the specific social and professional factors
-influencing health professionals (\textbf{Ngusie et al., 2021}). This
-necessitates a focus on user-centered design to ensure that digital
-transition does not increase the administrative burden on community
-workers (\textbf{Whitehead et al., 2023}).
+\textbf{2.1.1 The Philippine Digital Health Landscape and Local
+Surveillance Constraints}
 
-\paragraph{\texorpdfstring{\textbf{2.2.2 Relational Database
-Architectures and Data
-Normalization}}{2.2.2 Relational Database Architectures and Data Normalization}}\label{relational-database-architectures-and-data-normalization}
+Public health information management in the Philippines involves an
+operational gap between centralized electronic health strategies and
+primary health facility infrastructure. While national policies mandate
+interoperable digital health systems (Sylim et al., 2022), data
+management at the primary care level relies predominantly on manual
+logbooks and retrospective batch reporting. Barangay Health Workers
+(BHWs) serve as primary points of data collection but operate within
+resource-constrained environments affected by variable network
+connectivity, hardware limitations, and administrative overhead (De Mesa
+et al., 2023). Consequently, routine surveillance records experience
+transmission lags before reaching municipal databases, delaying
+localized outbreak detection at the community level (Hartigan-Go et al.,
+2024).
 
-The choice of database architecture is a critical technical determinant
-of data integrity in health informatics. \textbf{Antas et al. (2022)}
-established that Relational Database Management Systems (RDBMS) using
-SQL are mathematically more suitable for storing and mining structured
-epidemiological datasets compared to NoSQL alternatives.
+\textbf{2.1.2 Dengue Epidemiology and Granular Surveillance in Davao
+City}
 
-Furthermore, \textbf{Izonin et al. (2022)} and \textbf{Alderden et al.
-(2023)} justify the use of "Data Normalization" as a mechanical
-necessity in the medical diagnosis domain. By utilizing relational
-parameters to link case-specific variables, a system can ensure that
-granular records are synchronized into longitudinal annual summaries
-without redundancy or loss of accuracy.
+In municipal centers such as Davao City, tracking vector-borne
+transmission across 182 distinct barangays introduces spatial and
+temporal monitoring challenges. Urban density, micro-climatic
+variations, and population movements contribute to localized Dengue
+surge trajectories that are non-uniform across districts.
 
-\paragraph{\texorpdfstring{\textbf{2.2.3 Local-First Storage and Edge
-Computing}}{2.2.3 Local-First Storage and Edge Computing}}\label{local-first-storage-and-edge-computing}
+While broad environmental surveillance, including municipal wastewater
+monitoring, provides population-level estimates (Otero et al., 2022),
+operational decision support requires case-level epidemiological
+records. Current public health informatics research indicates that
+capturing standardized case attributes (Morbidity Week, Morbidity Month,
+District, Barangay, Age, Sex, Clinical Classification, and Case
+Classification) at the point of care provides the empirical foundation
+necessary to execute localized threshold calculations and vector
+intervention planning (Olana et al., 2025; Paluyo et al., 2022).
 
-To address the infrastructure instability documented in the Philippines,
-recent research proposes a shift toward "local-first" or "edge"
-architectures. The \textbf{"Padayon" model (Paluyo et al., 2022)} serves
-as a primary validation of offline-first digital health models in rural
-Philippines, proving that data integrity can be maintained without
-constant internet connectivity. From a performance perspective,
-\textbf{Jazaeri et al. (2023)} demonstrate that processing data at the
-"edge"---on the local device rather than a remote server---minimizes
-latency and optimizes data classification for IoT and web-based
-healthcare solutions. This ensures that BHWs can retrieve and input data
-with high speed, regardless of the local network state.
+\textbf{2.2 Technologies and Methodologies for Dengue Health
+Informatics}
 
-\paragraph{\texorpdfstring{\textbf{2.2.4 Python-Based Computational
-Pipelines for
-Reporting}}{2.2.4 Python-Based Computational Pipelines for Reporting}}\label{python-based-computational-pipelines-for-reporting}
+\textbf{2.2.1 Primary Data Digitization and Schema Normalization}
 
-Modern public health informatics requires more than just storage; it
-requires the automated transformation of raw data into intelligence.
-\textbf{Krishnapur et al. (2026)} validate the use of Python-based
-computational pipelines for the real-time ingestion and dynamic
-reporting of public health data.
+The transition from manual paper logbooks to structured digital
+registries represents a foundational requirement for municipal
+epidemiological monitoring. Replacing paper-based records with
+structured digital ingestion enables health units to eliminate
+transmission delays inherent in aggregate reporting (Thakur et al.,
+2023). However, digital health deployments in resource-limited
+environments face operational friction if user workflows introduce
+excessive administrative overhead (Ngusie et al., 2021).
 
-Such frameworks allow for the creation of reproducible analysis paths,
-ensuring that annual reports generated by the system are consistent with
-the raw granular inputs. This technical standard supports the transition
-from "data collection" to "health monitoring" by providing stakeholders
-with automated, high-resolution summaries.
+System architectures must therefore balance user-centered design with
+structural integrity to maintain consistent data entry compliance among
+primary personnel (Whitehead et al., 2023).
 
-\subsubsection{\texorpdfstring{\textbf{2.2.5 Analysis of Existing
-Systems and Research
-Gaps}}{2.2.5 Analysis of Existing Systems and Research Gaps}}\label{analysis-of-existing-systems-and-research-gaps}
+To ensure high-integrity data ingestion without structural redundancy,
+Relational Database Management Systems (RDBMS) utilizing Structured
+Query Language (SQL) provide necessary mathematical integrity
+constraints (Antas et al., 2022). Applying relational normalization
+rules to epidemiological variables prevents data anomalies during
+high-frequency ingestion (Alderden et al., 2023; Izonin et al., 2022).
+Linking case-specific parameters, including Morbidity Week, Morbidity
+Month, District, Barangay, Age, Sex, Clinical Classification, and Case
+Classification, within a normalized schema enables efficient querying
+and long-term longitudinal aggregation without record corruption.
 
-Despite advancements in health informatics, several critical gaps
-persist:
+\textbf{2.2.2 Edge Execution, Local-First Storage, and Processing
+Pipelines}
+
+Deploying web-based decision support systems in settings with unstable
+network infrastructure requires an architectural shift away from
+traditional, always-online cloud paradigms (Kaboré et al., 2022).
+Local-first and edge computing paradigms address these connectivity
+constraints by executing core database transactions and processing
+routines directly on local client hardware (Jazaeri et al., 2023; Paluyo
+et al., 2022).
+
+Integrating a local-first SQLite database engine with Python processing
+pipelines allows primary health units to maintain continuous record
+creation, query execution, and local report generation during network
+disruptions (Krishnapur et al., 2026). Centralized cloud database
+synchronization is handled as an asynchronous background routine,
+preserving local operational continuity regardless of external network
+state.
+
+\textbf{2.2.3 Computational Analytics Paradigms for Disease
+Surveillance}
+
+Modern epidemiological decision support systems rely on multi-tiered
+analytical processing to transform raw transactional records into health
+intelligence. To establish a structured progression from raw case data
+to actionable decision support, the system incorporates a Three-Tier
+Analytics Framework:
 
 \begin{itemize}
 \item
-  \textbf{The Resolution Mismatch:} Most national platforms (e.g.,
-  iPHOIS) focus on regional or provincial summaries, leaving a void for
-  high-resolution, barangay-level granular tracking in cities like
-  Davao.
+  Tier 1 (Descriptive Analytics): Serves as the foundational
+  visualization layer, aggregating raw case attributes into spatial
+  heatmaps and temporal distribution curves across barangay and district
+  boundaries. This provides public health officers with real-time
+  micro-level spatial tracking and seasonal trend analysis (Olana et
+  al., 2025).
 \item
-  \textbf{The Connectivity Dependency:} A majority of existing web-based
-  management systems follow an "always-online" cloud model, which fails
-  to satisfy the resilience requirements of Philippine community health
-  settings (\textbf{Kaboré et al., 2022}).
+  Tier 2 (Predictive Analytics): Incorporates non-parametric statistical
+  methods, specifically a 75th percentile moving regression model
+  combined with historical baseline comparisons to establish dynamic
+  epidemic thresholds. By evaluating multi-year historical case
+  distributions (2023-2026), this tier accounts for seasonal vector
+  transmission cycles and identifies statistically significant case
+  deviations before peak transmission periods (Ouédraogo et al., 2023;
+  Thayer et al., 2025).
 \item
-  \textbf{The Normalization Gap:} While digital tools exist for data
-  entry, there is a lack of integrated frameworks that automatically
-  normalize unstructured manual logs into structured relational
-  repositories for annual longitudinal analysis.
+  Tier 3 (Prescriptive Analytics): Translates statistical threshold
+  outputs into operational decision support through deterministic,
+  rule-based decision logic. By evaluating real-time case counts against
+  Tier 2 baseline thresholds, the engine automatically triggers
+  standardized, color-coded alert notifications (Green for Normal,
+  Yellow for Warning, and Red for Epidemic Surge) to guide municipal
+  officers in deploying targeted vector control interventions (Nguyen \&
+  Ming, 2023).
 \end{itemize}
 
-\textbf{2.2.6 Technical Implementations for Database Security}
+\textbf{2.2.4 Health Data Security, Regulatory Compliance, and
+Governance}
 
-Securing localized health data in a Python and SQLite environment
-requires a multi-layered defense to build user trust and meet regulatory
-standards. The architecture implements four core security controls:
+Integrating security controls into municipal health architectures is
+both a regulatory requirement and a prerequisite for data integrity.
+Compliance with the Philippine Data Privacy Act of 2012 (RA 10173)
+requires point-of-entry de-identification, which is achieved by
+excluding direct identifiers such as patient names, street addresses,
+and contact numbers from the relational schema in favor of
+system-generated internal keys. System access governance is maintained
+through Role-Based Access Control (RBAC), restricting Barangay Health
+Workers to local entry functions while reserving system administration
+and account management privileges for Municipal Health Officers.
 
-\begin{itemize}
-\item
-  \textbf{Data Privacy Compliance (RA 10173):} In compliance with the
-  Philippine Data Privacy Act of 2012, direct identifiers (names, phone
-  numbers, addresses) are excluded from the schema. Consultation logs
-  receive auto-generated internal keys (id) to ensure point-of-entry
-  de-identification.
-\item
-  \textbf{Role-Based Access Control (RBAC):} BHW permissions are
-  restricted to data entry and local logbook viewing. Administrative
-  roles hold full CRUD privileges over disease logs and manage account
-  activation using an is\_active status flag. .
-\item
-  \textbf{Credential Protection (Flask-Bcrypt):} User passwords are
-  secured using Flask-Bcrypt key-stretched salted hashing, mitigating
-  brute-force attacks while maintaining fast local execution.
-\item
-  \textbf{At-Rest Encryption:} Local database files (lokalhealth.db) are
-  encrypted using SQLCipher with 256-bit AES, while sensitive app keys
-  use Python Fernet encryption to protect offline edge deployments
-  against hardware theft.
-\end{itemize}
+At the application layer, credential protection utilizes salted
+key-stretching algorithms via Flask-Bcrypt to mitigate unauthorized
+access attempts. Furthermore, local database files and configuration
+keys in edge environments are secured using 256-bit AES encryption via
+SQLCipher and Python Fernet to protect against local hardware
+compromise. These security mechanisms operate within a broader Data Life
+Cycle Management (DLCM) framework, which governs records across six
+phases: creation, storage, analytical processing, synchronization,
+archiving, and deletion (Oktaviana et al., 2025; Rahul \& Banyal, 2020).
 
-\textbf{2.2.7 Data Governance and Lifecycle Protocols}
+\textbf{2.2.5 Synthesis, Research Gaps, and Proposed Technical Solution}
 
-Adopting a formal governance structure is critical for transforming raw
-community inputs into high-integrity health assets. According to
-\textbf{Oktaviana R. et al. (2025)}, effective health data governance is
-foundational to improving patient safety and establishing clear
-accountabilities for data protection, particularly in developing
-nations, where research in this domain remains emergent. This study
-identifies that addressing issues such as data redundancy and incomplete
-records requires a focus on three core domains: data quality management,
-metadata management, and data security.
+Despite progress in health informatics, the literature reveals three
+distinct technical gaps in municipal surveillance. First, a resolution
+mismatch exists because national platforms focus primarily on
+macro-level provincial or regional aggregates, leaving municipal health
+units without micro-level barangay tracking. Second, existing systems
+demonstrate a heavy network dependency, relying on constant cloud
+connectivity that fails in intermittent network environments (Kaboré et
+al., 2022). Third, an analytics integration gap persists, as most local
+health tools operate purely as static storage registries rather than
+integrated decision support platforms (Ouédraogo et al., 2023).
 
-To operationalize these governance domains, the proposed system follows
-the \textbf{Data Life Cycle Management (DLCM)} model established by
-\textbf{Rahul and Banyal (2020)}. This model maps the data journey
-through six distinct phases: creation, storage, usability, sharing,
-archiving, and destruction. By implementing this lifecycle under a
-secure management system, the project ensures that granular health data
-remains accessible for immediate barangay use while being structured for
-long-term "archive" and "sharing" in the form of annual CHO reports.
-
-\subsubsection{}\label{section-2}
-
-\subsubsection{\texorpdfstring{\textbf{2.2.8 Synthesis and Proposed
-Solution}}{2.2.8 Synthesis and Proposed Solution}}\label{synthesis-and-proposed-solution}
-
-To address these multi-dimensional gaps, this study proposes a Web-Based
-Disease Data Collection and Management System designed for the barangay
-level. Unlike centralized national platforms, this system focuses on
-high-resolution data capture, allowing for the tracking of individual
-cases (granular data) that are structured to aggregate into longitudinal
-summaries (annual data).
-
-To address the \textbf{Connectivity Dependency}, the study proposes a
-\textbf{Local-First Architecture} utilizing \textbf{SQLite}. This design
-allows Barangay Health Workers to perform data entry and retrieval tasks
-without a constant internet connection, synchronizing with the central
-repository when bandwidth is available.
-
-Furthermore, to address the \textbf{Privacy and Security Gap}, the
-proposed system implements a multi-layered cryptographic framework. By
-utilizing \textbf{SQLCipher} for at-rest database encryption and
-\textbf{bcrypt} for credential hashing, the system directly mitigates
-the "Perceived Risks" identified in the \textbf{Privacy Calculus
-Theory}, thereby increasing the likelihood of user adoption and data
-sharing.
-
-Finally, to address the \textbf{Normalization Gap}, the system utilizes
-a \textbf{Python-based framework} to map unstructured inputs into a
-normalized database schema. This technical approach transforms
-fragmented community health logs into a structured digital repository,
-providing stakeholders with a grounded tool for localized health
-surveillance.
+This research addresses these limitations through a Web-Based Decision
+Support System designed specifically for municipal Dengue surveillance
+in Davao City. The resolution mismatch is resolved by ingesting and
+mapping multi-year raw surveillance logs (comprising 16,391 cases from
+2023 to 2026) through an automated schema normalization pipeline. This
+pipeline standardizes variable attribute headers across logging years
+into core operational parameters (Morbidity Month, District, Barangay,
+Age, Sex, Clinical Classification, Case Classification, and Morbidity
+Week) to enable high-resolution spatial and temporal tracking. Network
+dependency is mitigated through a local-first SQLite architecture paired
+with Python processing pipelines, permitting offline record management,
+local querying, and offline analytics generation until network
+connectivity enables central database synchronization (Paluyo et al.,
+2022). The analytics gap is bridged by embedding a three-tier engine
+combining descriptive mapping, predictive 75th percentile moving
+regression (Ouédraogo et al., 2023; Thayer et al., 2025), and
+prescriptive rule-based alert triggers (Nguyen \& Ming, 2023). Finally,
+multi-layered security protocols ensure data confidentiality, system
+integrity, and full regulatory compliance with RA 10173 across local and
+municipal operational levels.
 
 \subsubsection{\texorpdfstring{\textbf{2.3 Theoretical Foundations and
 Frameworks}}{2.3 Theoretical Foundations and Frameworks}}\label{theoretical-foundations-and-frameworks}
 
-\paragraph{\texorpdfstring{\textbf{2.3.1 Theory of Digital Health
-Resilience
-(Sustainability)}}{2.3.1 Theory of Digital Health Resilience (Sustainability)}}\label{theory-of-digital-health-resilience-sustainability}
+\paragraph{\texorpdfstring{\textbf{2.3.1 Local-First Software
+Architecture Paradigm}
+}{2.3.1 Local-First Software Architecture Paradigm }}\label{local-first-software-architecture-paradigm}
 
-Grounding the study's architecture, this theory posits that for digital
-health interventions to be sustainable in low- and middle-income
-countries, they must be resilient to infrastructure failure. As
-supported by \textbf{Kaboré et al. (2022)}, this \textbf{justifies} the
-implementation of a \textbf{Local-First Architecture}. This framework
-ensures that the system functions in a "degraded" network state,
-treating synchronization as a background process rather than a
-requirement for operation.
+Grounding the proposed system's technical design, the Local-First
+Software Paradigm (Kleppmann et al., 2019) posits that data-centric
+applications should execute core storage and processing functions
+directly on client devices without requiring constant cloud
+connectivity. In primary care environments characterized by variable
+network infrastructure, local-first computing guarantees high
+operational availability by enabling offline record management, local
+querying, and offline analytics execution directly on edge hardware
+(Kleppmann et al., 2019). Empirical evaluations of electronic health
+record (EHR) deployments in Philippine primary care settings demonstrate
+that system acceptability degrades when software architectures introduce
+rigid connectivity or platform constraints across diverse health
+facilities (Elepaño et al., 2025). By embedding a local-first SQLite
+database paired with asynchronous cloud database synchronization, the
+system provides local data ownership and operational continuity for
+primary health units during network disruptions while maintaining
+central data consolidation capability.
 
-\includegraphics[width=5.59375in,height=3.78125in]{./media/image5.png}
+\includegraphics[width=5.38937in,height=3.70313in]{./media/image6.png}
 
-\textbf{Figure 2.3.1. Theory of Digital Health Resilience
-(Sustainability)}
+\textbf{Figure 2.3.1. Local-First Software Architecture Paradigm}
 
-\paragraph{\texorpdfstring{\textbf{2.3.2 Relational Data Integrity and
-Normalization
-Theory}}{2.3.2 Relational Data Integrity and Normalization Theory}}\label{relational-data-integrity-and-normalization-theory}
+\textbf{2.3.2 Relational Database Theory}
 
-This theory provides the mathematical basis for the system's data
-structure. It suggests that medical data accuracy is directly tied to
-the minimization of data redundancy through normalization rules
-(\textbf{Izonin et al., 2022}). This justifies the use of a relational
-schema in \textbf{SQLite} to link individual disease cases with temporal
-annual summaries, ensuring that "Granular" data is technically
-compatible with "Annual" reporting requirements.
+Edgar F. Codd's (1970) foundational relational model provides the
+mathematical structure for the proposed system's data management layer.
+Relational database theory asserts that data integrity is maintained
+through formal normalization rules, primary and foreign key constraints,
+and typed attribute fields, which collectively eliminate data redundancy
+and entry anomalies.
 
-\includegraphics[width=4.625in,height=3.76042in]{./media/image1.png}
+In healthcare and medical informatics, applying relational schemas
+addresses the severe limitations of non-conventional flat-file or
+spreadsheet-based tracking, which are prone to record corruption and
+duplicate entries (Dilling, 2020; Thomer \& Wickett, 2020). By
+structuring epidemiological variables such as Morbidity Week, Morbidity
+Month, Barangay, Age, Sex, and Case Classification within a normalized
+SQLite schema, the system enforces mathematical integrity constraints at
+the point of entry. This guarantees that micro-level case data remain
+structurally consistent and fully queryable for longitudinal analysis
+(Dilling, 2020).
 
-\textbf{Figure 2.3.2. Relational Data Integrity and Normalization
-Theory}
+\begin{quote}
+\includegraphics[width=4.83854in,height=3.42971in]{./media/image3.png}
+\end{quote}
+
+\textbf{Figure 2.3.2. Relational Database Theory}
+
+\paragraph{}\label{section-2}
 
 \paragraph{}\label{section-3}
+
+\paragraph{}\label{section-4}
+
+\paragraph{}\label{section-5}
 
 \paragraph{\texorpdfstring{\textbf{2.3.3 Technology Acceptance Model
 (TAM) and Usability
@@ -749,13 +896,13 @@ by \textbf{Whitehead et al. (2023)}, justifies the use of standardized
 usability metrics to assess how effectively Barangay Health Workers can
 manage localized disease surveillance through the system's interface.
 
-\includegraphics[width=5.61458in,height=2.67708in]{./media/image7.png}
+\includegraphics[width=5.19271in,height=4.70898in]{./media/image2.png}
 
 \textbf{Figure 2.3.3 Technology Acceptance Model (TAM) and Usability
 Theory}
 
-\subsubsection{\texorpdfstring{\textbf{2.3.4 Privacy Calculus
-Theory}}{2.3.4 Privacy Calculus Theory}}\label{privacy-calculus-theory}
+\subsubsection{\texorpdfstring{\textbf{2.3.4 Privacy Calculus Theory}
+}{2.3.4 Privacy Calculus Theory }}\label{privacy-calculus-theory}
 
 This theory provides the psychological and decision-making framework for
 data sharing in health tracking systems. As established by \textbf{Li et
@@ -770,153 +917,380 @@ perception. By reducing the "potential loss expectations" through
 visible security protocols, the system increases the user's intention to
 provide the granular data necessary for accurate health monitoring.
 
-\includegraphics[width=6.62963in,height=7.12898in]{./media/image6.png}
+\includegraphics[width=5.71181in,height=5.77527in]{./media/image5.png}
 
 \textbf{Figure 2.3.4 Privacy Calculus Theory}
 
-\subsubsection{}\label{section-4}
+\subsubsection{}\label{section-6}
 
 \subsubsection{\texorpdfstring{\textbf{CHAPTER 3:
 METHODOLOGY}}{CHAPTER 3: METHODOLOGY}}\label{chapter-3-methodology}
 
 \textbf{3.1 Conceptual Framework}
 
-The conceptual framework of this study follows an
-\textbf{Input-Process-Output (IPO)} model, illustrating the systematic
-transformation of fragmented manual health records into actionable,
-structured health intelligence. This framework (see Figure 3.1)
-integrates local-first synchronization and automated data pipelines to
-provide high-resolution reporting for the barangays of Davao City.
+The conceptual architecture of this investigation utilizes an
+Input-Process-Output (IPO) paradigm to operationalize the conversion of
+unstandardized community registers into structured municipal
+epidemiological intelligence. As illustrated in Figure 3.1, the
+framework integrates local-first synchronization and automated
+computational pipelines to facilitate high-resolution surveillance
+across Davao City's administrative boundaries.
 
-\includegraphics[width=7.16667in,height=4.90375in]{./media/image3.png}
+\includegraphics[width=6.53459in,height=4.46819in]{./media/image4.png}
 
-\textbf{Figure 3.1. \emph{Conceptual Framework of the System.}}
+\textbf{Figure 3.1. \emph{Conceptual Framework of the System}}
 
 \textbf{3.1.1 Input Stage}
 
-The system initiates with the ingestion of manual community health logs,
-which currently exist as granular, unstructured records. This stage
-focuses on \textbf{Data Ingestion}, where manual entries are converted
-into a digital format suitable for computational processing.
+The system initiation phase centers on the digital ingestion of granular
+community health records, originally captured as unstandardized manual
+logs. This procedural stage executes primary data digitization, ensuring
+that point-of-care entries are normalized and structured for relational
+database integration and subsequent computational analysis.
 
 \textbf{3.1.2 Process Stage}
 
-The processing core utilizes a hybrid architecture to ensure data
-integrity, resilience, and analytical depth:
+The analytical engine leverages a multi-layered software architecture
+engineered to ensure operational fault tolerance, structural integrity,
+and longitudinal precision:
 
-\begin{itemize}
-\item
-  \textbf{Local-First Synchronization Logic:} This component employs a
-  synchronization protocol that verifies local data states before
-  merging offline entries with the central data repository.
-\item
-  \textbf{Automated Pipeline Processing:} A Python-based processing
-  pipeline handles computational logic, performing both micro-level
-  processing (e.g., localized daily spike detection per purok) and
-  multi-year chronological aggregation (2023--2026) to generate
-  structured annual summaries.
-\item
-  \textbf{Structured Dataset Repository:} A central SQLite database
-  serves as the normalized repository for all verified and de-identified
-  medical records
-\end{itemize}
+Local-First Synchronization Logic: This component prioritizes
+client-side record management within a local SQLite architecture,
+maintaining continuous system utility in edge deployments lacking stable
+network access. Asynchronous protocols facilitate background
+synchronization with the municipal database server upon connection
+restoration.
+
+Automated Computational Pipeline: A Python-based analytics pipeline
+executes the system's processing logic, performing micro-level spatial
+spike detection at the barangay level and aggregating multi-year
+epidemiological datasets (2023-2026) to generate comprehensive
+chronological summaries.
+
+Structured Dataset Repository: This relational schema serves as the
+primary data governance layer, managing verified, de-identified patient
+attributes within a normalized repository to prevent data anomalies and
+ensure longitudinal consistency.
 
 \textbf{3.1.3 Output Stage}
 
-The system culminates in the \textbf{Web-Based Health Management
-System}, which provides a user interface for data interaction. The
-primary output is \textbf{High-resolution Health Intelligence},
-specifically delivered through \textbf{Automated Annual Reports}
-designed to assist stakeholders in disease surveillance and resource
-allocation.
+The framework concludes by presenting processed epidemiological
+intelligence through a Flask-based web interface. This secure platform
+renders interactive analytical dashboards and automated operational
+reports, providing municipal health authorities with the high-resolution
+evidence required to optimize resource allocation, guide vector
+interventions, and refine localized public health policy.
+
+The synthesized technical descriptions provided above maintain strict
+alignment with the established nomenclature of the conceptual model,
+ensuring clarity for external evaluation. After finalizing this section,
+the investigation will outline the procedural roadmap in Section 3.2:
+Operational Framework.
 
 \textbf{3.2 Operational Framework}
 
 The operational framework (see Figure 3.2) delineates the sequential
 workflow and procedural stages required to execute the study. While the
-conceptual framework defines the system's architecture, the operational
-framework serves as a procedural roadmap, mapping the transition from
-the collection of health record logs to the generation of validated
-reports.
+conceptual framework defines the system's underlying architecture, the
+operational framework serves as a procedural roadmap, mapping the
+step-by-step transition from initial health record log ingestion to
+local/central database synchronization, analytical execution, and
+validated report generation.
 
-\includegraphics[width=7.14352in,height=3.98958in]{./media/image2.png}
+\includegraphics[width=6.18403in,height=3.97403in]{./media/image1.png}
 
-\textbf{Figure 3.2. \emph{Operational Framework of the Study.}}
+\textbf{Figure 3.2. \emph{Operational Framework Of The System}}
 
-\textbf{3.2.1 Phase I: Data Acquisition and Local Storage}
+\textbf{3.2.1 Phase I: Data Acquisition, Schema Mapping, and Local
+Storage}
 
-The initial phase focuses on the ingestion and primary storage of health
-records, transitioning manual paper logs into a digital pipeline.
+The initial phase focuses on the digital ingestion and primary archival
+of health records:
 
 \begin{itemize}
 \item
-  \textbf{Local Database Entry:} Data is captured locally in SQLite
-  (lokalhealth.db), allowing Barangay Health Workers (BHWs) to record
-  cases offline. Each entry stores six core schema parameters:
-  consultation\_date, purok\_id, disease\_id, age, gender, and symptoms.
+  Data Ingestion \& Schema Normalization: Raw surveillance files from
+  2023--2026 exhibit minor header variations across logging years (e.g.,
+  MW vs. Morbidity Week, ClinClass vs. clinical classification, and
+  AgeYears vs. Age in Years). The Python ingestion pipeline maps these
+  aliases into a unified relational schema containing key operational
+  parameters: Morbidity Month, District, Barangay, Age, Sex, Clinical
+  Classification, Case Classification, and Morbidity Week (aggregated to
+  Morbidity Month for time-series consistency when week markers are
+  omitted).
 \item
-  \textbf{De-Identification \& Anonymization Protocol:} To comply with
-  the Data Privacy Act of 2012 (RA 10173), direct identifiers like names
-  and contact details are excluded. Records receive auto-generated
-  internal case keys (id) at entry to ensure full patient
-  de-identification.
+  Local Database Entry: Records are stored locally in SQLite, enabling
+  Barangay Health Workers (BHWs) to operate offline during network
+  disruptions.
+\item
+  De-Identification Protocol: To comply with RA 10173 (Data Privacy Act
+  of 2012), direct personal identifiers are stripped, and records are
+  assigned auto-generated internal case IDs to ensure complete patient
+  anonymity.
 \end{itemize}
 
-\textbf{3.2.2 Phase II: Synchronization and Compatibility Logic}
+\textbf{3.2.2 Phase II: Network Connectivity \& Synchronization Logic}
 
-This phase manages data validation and integration across storage tiers.
+This procedural stage governs the evaluation of network states and the
+orchestration of cross-tier data routing:
 
 \begin{itemize}
 \item
-  \textbf{Compatibility Check:} The system evaluates offline local logs
-  to ensure structural compatibility and prevent duplicate entries
-  before merging.
-\item
-  \textbf{Centralized Integration:} Verified logs are pushed to the
-  central database repository for long-term storage and analytical
-  processing. \textbackslash{}
+  Connectivity Check: The system continuously monitors network
+  availability. Upon detecting active connectivity, local transactions
+  are asynchronously synchronized with the Centralized Database. In the
+  absence of a stable connection, records are securely retained within
+  the Local Database layer.
 \end{itemize}
 
-\textbf{3.2.3 Phase III: Processing and Web Interface}
-
-This phase transforms raw stored records into actionable health
-analytics using a Python-based processing pipeline.
-
 \begin{itemize}
 \item
-  \textbf{Seasonal Bias Control:} To balance monsoon/flood spikes
-  (Dengue, Leptospirosis) against endemic baseline diseases (TB), the
-  pipeline evaluates records across full 12-month cycles (2023--2026)
-  using month-over-month rate comparisons.
-\item
-  \textbf{Geographical Bias Control:} Mapping records to purok\_id
-  isolates spatial risk factors, distinguishing high-density urban zones
-  from flood-prone riverbank areas.
-\item
-  \textbf{Chronological Partitioning:} To prevent temporal data leakage,
-  historical records from 2023--2025 serve as the baseline analysis
-  dataset, while 2026 records are partitioned as the evaluation test
-  set.
-\item
-  \textbf{Web Interface Rendering:} Processed analytics are delivered to
-  the web dashboard, providing interactive visualizations for BHWs and
-  Administrators.
+  Offline Operations: Local records remain fully queryable during
+  network disruptions, allowing personnel to execute automated reporting
+  and localized analytics directly from edge storage regardless of
+  internet connectivity.
 \end{itemize}
 
-\textbf{3.2.4 Phase IV: Output and Reporting}
-
-The final phase focuses on delivering structured epidemiological outputs
-to municipal health authorities.
+\textbf{3.2.3 Phase III: Processing Pipeline and Web Interface}
 
 \begin{itemize}
 \item
-  \textbf{Dual-Level Visibility:} The reporting module provides granular
-  case-level tracking for internal clinic operations and aggregated
-  monthly/annual summaries for macro-surveillance.
+  \textbf{Tier 1 (Descriptive Analytics):} Maps the spatial and temporal
+  distribution of 16,391 total records across Davao City (6,919 in 2023;
+  7,714 in 2024; 224 in 2025; and 1,534 in 2026), focusing on Talomo
+  District for localized evaluation disaggregated by barangay\_id and
+  morbidity week.
 \item
-  \textbf{CSV/PDF Export Generation:} Standardized summary reports are
-  rendered into downloadable CSV and PDF formats for seamless submission
-  to the City Health Office (CHO).
+  \textbf{Tier 2 (Predictive Analytics):} Executes 75th percentile
+  moving regression and historical baseline comparisons to calculate
+  severe dengue risk classifications and short-term weekly trend
+  thresholds.
+\item
+  \textbf{Tier 3 (Prescriptive Analytics):} Operationalizes threshold
+  outputs into automated, rule-based early warning alert triggers
+  (\textbf{Green}, \textbf{Yellow}, \textbf{Red}) to identify high-risk
+  barangays and direct targeted vector control interventions.
+\item
+  \textbf{Seasonal Bias Control:} The pipeline evaluates records across
+  full 12-month cycles (2023--2026) to balance monsoon-driven surges
+  against endemic baseline conditions using longitudinal rate
+  comparisons.
+\item
+  \textbf{Geographical Bias Control:} Mapping epidemiological attributes
+  to barangay\_id (and district boundaries) isolates spatial risk
+  factors, distinguishing high-density urban clusters from localized
+  environmental hazard zones across Davao City.
+\item
+  \textbf{Chronological Partitioning:} To mitigate temporal data
+  leakage, historical records from 2023--2025 establish the analytical
+  baseline, while the 2026 dataset is partitioned for active model
+  evaluation and threshold verification.
+\item
+  \textbf{Web Interface Rendering:} Processed analytical outputs across
+  all three tiers are visualized through a Flask-driven web dashboard,
+  providing health officers with interactive feeds for micro-level
+  spatial and temporal monitoring.
+\end{itemize}
+
+\textbf{3.2.4 Phase IV: Automated Output and Reporting}
+
+The final operational stage operationalizes standardized epidemiological
+intelligence for municipal decision support:
+
+\begin{itemize}
+\item
+  Dual-Level Visibility: The platform facilitates granular case-level
+  tracking for localized primary care alongside aggregated monthly and
+  annual summaries for municipal macro-surveillance.
+\end{itemize}
+
+\begin{itemize}
+\item
+  CSV/PDF Export Generation: Standardized epidemiological summaries and
+  trend analytics are compiled into downloadable formats to facilitate
+  seamless information transmission to municipal health authorities.
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{3.3 System Data Description \& Case
+Study
+Specification}}{3.3 System Data Description \& Case Study Specification}}\label{system-data-description-case-study-specification}
+
+\subsubsection{\texorpdfstring{\textbf{3.3.1 Dataset Scale and Potential
+Data
+Characteristics}}{3.3.1 Dataset Scale and Potential Data Characteristics}}\label{dataset-scale-and-potential-data-characteristics}
+
+The proposed decision support system is built on a longitudinal
+epidemiological repository of 16,391 de-identified Dengue surveillance
+records from Davao City (January 2023--August 2026). To establish
+non-parametric statistical thresholds, we use a multi-year historical
+baseline (2023--2025; n=14,857), while the subsequent 2026 dataset
+(n=1,534) enables out-of-sample evaluation for active surveillance
+monitoring.
+
+An evaluation of the raw surveillance registry indicates several
+structural sampling attributes and operational constraints:
+
+\begin{itemize}
+\item
+  \textbf{Reporting and Health-Seeking Tendencies:} The primary records
+  originate from passive monitoring within public facilities and
+  municipal centers. Consequently, asymptomatic or mild cases managed at
+  home, as well as patient volumes within private healthcare networks,
+  may be underrepresented within the aggregated case counts.
+\item
+  \textbf{Spatial and Demographic Distribution:} High-density urban
+  administrative units, specifically those within the Talomo District,
+  demonstrate increased reporting volumes compared to rural or
+  peri-urban sectors. This distribution likely reflects proximity to
+  municipal health infrastructure rather than isolated transmission
+  intensity.
+\item
+  \textbf{Temporal Patterns and Class Distribution:} Records indicate
+  that severe clinical classifications comprise a limited percentage of
+  the total case distribution relative to non-severe or suspected
+  categories. Furthermore, chronological trends exhibit significant
+  variance between dry-season endemic baselines and monsoon-driven surge
+  periods.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{3.3.2 Preprocessing, Filtering,
+and Data
+Structuring}}{3.3.2 Preprocessing, Filtering, and Data Structuring}}\label{preprocessing-filtering-and-data-structuring}
+
+To operationalize the dataset for baseline modeling, a multi-layered
+Python processing pipeline executes rigorous data curation and
+relational standardization:
+
+\begin{itemize}
+\item
+  \textbf{Header Alias Mapping and Schema Normalization:} The engine
+  maps variable column headers across legacy registries (mapping MW to
+  Morbidity Week and ClinClass to Clinical Classification). In
+  compliance with the Data Privacy Act (RA 10173), direct personal
+  identifiers are removed at point-of-ingestion.
+\item
+  \textbf{Missing Data Handling:} The system utilizes structural
+  curation and temporal partitioning rather than synthetic sampling.
+  Attributes lacking granular weekly markers are aggregated into
+  Morbidity Month summaries for longitudinal tracking but are excluded
+  from high-resolution regression to preserve baseline integrity.
+\item
+  \textbf{Geographical and Seasonal Rate Adjustment:} Spatial case
+  attributes are evaluated alongside population density within barangay
+  boundaries (barangay\_id) to calculate relative incidence per 10,000
+  residents, adjusting for demographic variance across municipal units.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{3.3.3 Model Formulation and
+Sensitivity
+Management}}{3.3.3 Model Formulation and Sensitivity Management}}\label{model-formulation-and-sensitivity-management}
+
+The predictive module utilizes a non-parametric 75th Percentile Moving
+Regression across a multi-year rolling horizon (2023--2025). Threshold
+precision and sensitivity are maintained through the following
+architectural strategies:
+
+\begin{itemize}
+\item
+  \textbf{Rolling Window Smoothing:} Statistical limits are calculated
+  using multi-week temporal horizons to mitigate the influence of
+  stochastic, short-term data fluctuations.
+\item
+  \textbf{Non-Parametric Percentile Calculations:} Applying the 75th
+  percentile boundary limits the impact of historical epidemiological
+  anomalies that would otherwise inflate standard mean-based thresholds.
+\item
+  \textbf{Out-of-Sample Evaluation:} The active 2026 dataset remains
+  isolated from baseline computation to facilitate model verification on
+  unobserved temporal segments.
+\end{itemize}
+
+(Note: The exclusion of cases from non-reporting private facilities is
+recognized as an inherent limitation of passive surveillance frameworks,
+as detailed in the recommendations for future research in Chapter 5).
+
+\subsubsection{\texorpdfstring{\textbf{3.3.4 Case Study Environment and
+Scope
+Boundaries}}{3.3.4 Case Study Environment and Scope Boundaries}}\label{case-study-environment-and-scope-boundaries}
+
+This case study monitors municipal surveillance across 182 barangays in
+Davao City, with operational evaluation primarily localized within the
+Talomo District.
+
+\begin{itemize}
+\item
+  \textbf{Included in Scope:} The investigation encompasses multi-year
+  time-series modeling (2023--2026), local-first edge record entry for
+  Barangay Health Workers (BHWs), asynchronous SQLite synchronization,
+  batch record error handling, and the execution of 3-tier early warning
+  alert triggers.
+\item
+  \textbf{Excluded from Scope:} The technical scope excludes
+  entomological larval density mapping, real-time meteorological data
+  integration, and direct electronic health record (EHR)
+  interoperability beyond passive surveillance log ingestion.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{3.3.5 Mathematical
+Assumptions}}{3.3.5 Mathematical Assumptions}}\label{mathematical-assumptions}
+
+The predictive and prescriptive modules operate under three governing
+mathematical assumptions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Assumption of Non-Gaussian Seasonal Distributions:}
+\end{enumerate}
+
+\begin{quote}
+Dengue transmission trajectories frequently exhibit skewed
+distributions. \textbf{Mathematical Assumption:} Threshold calculations
+utilize a non-parametric distribution based on percentile boundaries
+(P75) rather than parametric Gaussian metrics (μ + σ), ensuring that
+historical surge peaks do not disproportionately displace the baseline
+midpoint.
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Assumption of Spatial Units for Analysis:}
+\end{enumerate}
+
+\begin{quote}
+Case aggregations (Cw,b) treat each administrative barangay (b) as a
+discrete unit during weekly threshold comparison (Tw,b), enabling alert
+triggers to reflect localized morbidity reports.
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Assumption of Proportional Threshold Scaling:}
+\end{enumerate}
+
+\begin{quote}
+Tier 3 alert categories utilize fixed multipliers relative to the
+calculated threshold (Tw):
+\end{quote}
+
+\begin{itemize}
+\item
+  \textbf{Green Alert (Normal State):} Cw is less than 0.75 × Tw,
+  indicating routine monitoring status.
+\item
+  \textbf{Yellow Alert (Warning State):} Cw is between 0.75 × Tw and Tw,
+  triggering pre-surge advisories for localized vector control
+  preparation.
+\item
+  \textbf{Red Alert (Surge State):} Cw exceeds Tw, signifying a
+  threshold breach for municipal response and targeted intervention.
+\item
+  \textbf{Purpose:} This provides a standardized computational framework
+  for categorizing risk levels across administrative boundaries.
 \end{itemize}
 
 \subsubsection{\texorpdfstring{\textbf{References}}{References}}\label{references}
@@ -924,24 +1298,20 @@ to municipal health authorities.
 J. Alderden, P. D. Sharkey, S. M. Kennerly, S. Ghosh, R. S. Barrett, S.
 D. Horn, S. Ghosh, and T. L. Yap. 2023. Developing a relational database
 for best practice data management: The TEAM-UP database. Computers,
-Informatics,
-Nursing.\href{https://pmc.ncbi.nlm.nih.gov/articles/PMC10153087/}{\ul{https://pmc.ncbi.nlm.nih.gov/articles/PMC10153087/}}
+Informatics, Nursing.
+\href{https://pmc.ncbi.nlm.nih.gov/articles/PMC10153087/}{\ul{https://pmc.ncbi.nlm.nih.gov/articles/PMC10153087/}}
 
 J. Antas, R. R. Silva, and J. Bernardino. 2022. Assessment of SQL and
 NoSQL systems to store and mine COVID-19 data. \emph{Computers}.
 \href{https://www.mdpi.com/2073-431X/11/2/29}{\ul{https://www.mdpi.com/2073-431X/11/2/29}}
 
-R. E. Baticulon, J. J. Sy, N. R. Alberto, M. B. C. Baron, R. E. C.
-Mabulay, L. G. T. Rizada, C. J. S. Tiu, C. A. Clarion, J. C. B. Reyes,
-et al. 2021. Barriers to online learning in the time of COVID-19: A
-national survey of medical students in the Philippines. \emph{Medical
-Science Educator}.
-\href{https://link.springer.com/article/10.1007/s40670-021-01231-z}{\ul{https://link.springer.com/article/10.1007/s40670-021-01231-z}}
+E. F. Codd. 1970. A relational model of data for large shared data
+banks. Communications of the ACM.
+\href{https://dl.acm.org/doi/10.1145/362384.362685}{\ul{https://dl.acm.org/doi/10.1145/362384.362685}}
 
-Z. Chengyu, H. Xueyan, and F. Ying. 2024. Research on disease management
-of chronic disease patients based on digital therapeutics: A scoping
-review. \emph{Journal of Medical Internet Research}.
-\href{https://pmc.ncbi.nlm.nih.gov/articles/PMC11544657/}{\ul{https://pmc.ncbi.nlm.nih.gov/articles/PMC11544657/}}
+F. D. Davis. 1989. Perceived usefulness, perceived ease of use, and user
+acceptance of information technology. \emph{MIS Quarterly}.
+\href{https://dl.acm.org/doi/10.2307/249008}{\ul{https://dl.acm.org/doi/10.2307/249008}}
 
 R. Y. H. De Mesa, Z. M. Hendrickson, C. S. C. Tan-Lim, A. Elepaño, N. M.
 C. Fabian, J. F. E. Lopez, C. A. Latkin, L. F. Dans, M. P. Rey, and A.
@@ -949,14 +1319,22 @@ M. L. Dans. 2023. Resilience, ingenuity, and identity: A multi-level
 analysis of the Filipino community health worker experience in rural and
 remote municipalities in the Philippines. \emph{PLOS Global Public
 Health}.
-\href{https://doi.org/10.1371/journal.pgph.0004965}{\ul{https://doi.org/10.1371/journal.pgph.0004965}}
+\href{https://journals.plos.org/globalpublichealth/article?id=10.1371/journal.pgph.0004965}{\ul{https://journals.plos.org/globalpublichealth/article?id=10.1371/journal.pgph.0004965}}
 
-M. Glennie, M. Dowden, M. Scolyer, I. O'Meara, G. Angeles, H. Woerle, P.
-T. Campbell, and K. Gardner. 2023. Community-led data collection:
-Enhancing local-level scabies surveillance in remote Aboriginal
-communities in Australia. \emph{Tropical Medicine and Infectious
-Disease}.
-\href{https://www.mdpi.com/2414-6366/8/4/200}{\ul{https://www.mdpi.com/2414-6366/8/4/200}}
+T. J. Dilling. 2020. Artificial intelligence research: The utility and
+design of a relational database system. Advances in Radiation Oncology.
+\href{https://pmc.ncbi.nlm.nih.gov/articles/PMC7718502/}{\ul{https://pmc.ncbi.nlm.nih.gov/articles/PMC7718502/}}
+
+A. A. Eligado, T. Hasegawa, Y. Hattori, and K. Nakamura. 2026. Advancing
+outbreak detection: Hybridizing machine learning with wavelets for
+weekly dengue case forecasting. \emph{PLOS Neglected Tropical Diseases}.
+\href{https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0014444}{\ul{https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0014444}}
+
+A. Elepaño, C. S. Tan-Lim, M. A. Javelosa, R. Y. De Mesa, M. Rey, J.
+Sanchez, L. Dans, and A. M. Dans. 2025. Implementing electronic health
+records in Philippine primary care settings: Mixed-methods pilot study.
+JMIR Medical Informatics.\\
+\href{https://www.sciencedirect.com/org/science/article/pii/S2291969425001346}{\ul{https://www.sciencedirect.com/org/science/article/pii/S2291969425001346}}
 
 K. Y. Hartigan-Go, M. L. Prieto, and S. A. Valenzuela. 2024. Important
 but neglected: A qualitative study on the lived experiences of barangay
@@ -982,11 +1360,23 @@ interventions in low- and middle-income countries: A systematic review.
 \emph{BMC Health Services Research}.
 \href{https://pmc.ncbi.nlm.nih.gov/articles/PMC9742266/}{\ul{https://pmc.ncbi.nlm.nih.gov/articles/PMC9742266/}}
 
+M. Kleppmann, A. Wiggins, P. van Hardenberg, and M. McGranaghan. 2019.
+Local-first software: You own your data, in spite of the cloud.
+Proceedings of the ACM on Programming Languages.
+\href{https://dl.acm.org/doi/10.1145/3359591.3359737}{\ul{https://dl.acm.org/doi/10.1145/3359591.3359737}}
+
 P. K. Krishnapur, C. Cm, A. B, and A. M. 2026. A reproducible
 Python-based computational pipeline for real-time ingestion, advanced
 analysis, and dynamic reporting of public health data: A systems
 validation study. \emph{Journal of Medical Internet Research}.
 \href{https://pubmed.ncbi.nlm.nih.gov/41798472/}{\ul{https://pubmed.ncbi.nlm.nih.gov/41798472/}}
+
+U. K. Mustafa, E. Sauli, K. S. Kreppel, J. Boenecke, and J. Brinkel.
+2025. Evaluation of the acceptability of ESIDA app, a smartphone-based
+clinical decision support application to improve infectious disease
+outbreak detection in Tanzania: Clinician perspectives. \emph{Health
+Research Policy and Systems}.
+\href{https://pmc.ncbi.nlm.nih.gov/articles/PMC12220453/}{\ul{https://pmc.ncbi.nlm.nih.gov/articles/PMC12220453/}}
 
 J. Li, X. Luo, and H. Lei. 2024. TrustHealth: Enhancing eHealth Security
 with Blockchain and Trusted Execution Environments. \emph{Electronics}.
@@ -1004,6 +1394,12 @@ toward data-driven vertical connectivity analysis of rivers.
 \emph{Environmental Modelling \& Software}.
 \href{https://www.sciencedirect.com/science/article/pii/S136481522300302X}{\ul{https://www.sciencedirect.com/science/article/pii/S136481522300302X}}
 
+Q. H. Nguyen and D. K. Ming. 2023. Mapping patient pathways and
+understanding clinical decision-making in dengue management to inform
+the development of digital health tools. \emph{BMC Medical Informatics
+and Decision Making}.
+\href{https://link.springer.com/article/10.1186/s12911-023-02116-4}{\ul{https://link.springer.com/article/10.1186/s12911-023-02116-4}}
+
 H. S. Ngusie, A. M. Shiferaw, A. D. Bogale, and M. H. Ahmed. 2021.
 Health data management practice and associated factors among health
 professionals working at public health facilities in resource-limited
@@ -1012,7 +1408,8 @@ settings. \emph{BMC Medical Informatics and Decision Making}.
 
 J. A. Obiri-Tetteh, R. E. Turkson, E. A. Frimpong, A. S. Yussif, D. A.
 Asante, and E. Attipoe. 2021. BCrypt-Based Optimized Password Hashing
-Against Targeted Internet of Things Attacks. \emph{Cureus}.
+Against Targeted Internet of Things Attacks.\emph{Cureus}.
+
 \href{https://www.cureusjournals.com/articles/5167-bcrypt-based-optimized-password-hashing-against-targeted-internet-of-things-attacks\#!/}{\ul{https://www.cureusjournals.com/articles/5167-bcrypt-based-optimized-password-hashing-against-targeted-internet-of-things-attacks\#!/}}
 
 R. S. Oktaviana, P. W. Handayani, A. N. Hidayanto, and B. B. Siswanto.
@@ -1020,6 +1417,12 @@ R. S. Oktaviana, P. W. Handayani, A. N. Hidayanto, and B. B. Siswanto.
 perspectives. \emph{International Journal of Information Management Data
 Insights}.
 \href{https://www.sciencedirect.com/science/article/pii/S2667096825000242}{\ul{https://www.sciencedirect.com/science/article/pii/S2667096825000242}}
+
+K. O. A. Olana, N. Poprom, P. Siewchaisakul, V. Punyapornwithaya, and A.
+Thongprachum. 2025. Spatial distribution analysis and comparative
+forecasting of dengue resurgence in the Philippines (2025-2027): A
+nationwide study. Transboundary and Emerging Diseases. Article 7480710.
+\href{https://pmc.ncbi.nlm.nih.gov/articles/PMC12543447/}{\ul{https://pmc.ncbi.nlm.nih.gov/articles/PMC12543447/}}
 
 M. C. B. Otero, L. A. E. Murao, M. A. G. Limen, D. R. A. Caalim, P. L.
 A. Gaite, M. G. Bacus, J. T. Acaso, R. M. Miguel, K. Corazo, I. E. Knot,
@@ -1053,6 +1456,11 @@ qualitative study of meso-level public health officers in an Indian
 high-priority aspirational district. \emph{International Journal of
 Medical Informatics}.
 \href{https://www.mdpi.com/2076-3387/15/10/397}{\ul{https://www.mdpi.com/2076-3387/15/10/397}}
+
+A. K. Thomer and K. M. Wickett. 2020. Relational data paradigms: What do
+we learn by taking the materiality of databases seriously? Big Data \&
+Society.
+\href{https://journals.sagepub.com/doi/10.1177/2053951720934838}{\ul{https://journals.sagepub.com/doi/10.1177/2053951720934838}}
 
 D. Trillo-Montero, S. Cosano-Lucena, M. González-Redondo, J. J.
 Luna-Rodríguez, and I. Santiago. 2023. Design and development of a
