@@ -83,7 +83,6 @@
 
 \begin{document}
 
-
 \begin{titlepage}
 
 \begin{center}
@@ -172,7 +171,6 @@ Carlos Manuel S. Pastores
 \end{center}
 
 \end{titlepage}
-
 
 \subsubsection{\texorpdfstring{\textbf{Table of
 Contents}}{Table of Contents}}\label{table-of-contents}
@@ -303,27 +301,31 @@ Mitigation} .. \textbf{36}
 ..................... \textbf{38}
 
 \textbf{3.2.4 System Architecture, Security, and Machine Learning
-Integration} .... \textbf{39}
+Integration} .... \textbf{38}
 
-\textbf{3.1 Operational Framework}
+\textbf{3.2.5 Hardware \& Software Environment Specifications}
+............................. \textbf{40}
+
+\textbf{3.2.6 Version Control, Repository Structure, \& Reproducibility}
+.................. \textbf{42}
+
+\textbf{3.2.7 Model \& Optimization Rigor}
+...................................................................
+\textbf{44}
+
+\textbf{3.3 Operational Framework}
 .............................................................................
-\textbf{41}
+\textbf{47}
 
 \textbf{3.3.1 Ingestion and Data Entry Stage}
 .............................................................
-\textbf{42}
+\textbf{48}
 
 \textbf{3.3.2 Backend Processing and Database Layer}
-.......................................... \textbf{42}
+.......................................... \textbf{48}
 
 \textbf{3.3.3 Interface and Decision Support Output Stage}
-.................................... \textbf{43}
-
-\begin{quote}
-\textbf{REFERENCES}
-..................................................................................................
-\textbf{44}
-\end{quote}
+..................................... \textbf{49}
 
 \subsubsection{\texorpdfstring{\textbf{List of
 Figures}}{List of Figures}}\label{list-of-figures}
@@ -347,7 +349,19 @@ Principles Figure} ..... \textbf{29}
 
 \textbf{3.3 Operational Framework Figure}
 .................................................................
-\textbf{41}
+\textbf{47}
+\end{quote}
+
+\subsubsection{\texorpdfstring{\textbf{List of
+Tables}}{List of Tables}}\label{list-of-tables}
+
+\begin{quote}
+\textbf{Table 3.1 System Hardware and Software Table}
+......................................... \textbf{40}
+
+\textbf{REFERENCES}
+..................................................................................................
+\textbf{50}
 
 \textbf{ABSTRACT}
 \end{quote}
@@ -853,7 +867,7 @@ system provides local data ownership and operational continuity for
 primary health units during network disruptions while maintaining
 central data consolidation capability.
 
-\includegraphics[width=5.38937in,height=3.70313in]{./media/image4.png}
+\includegraphics[width=5.38937in,height=3.70313in]{./media/image6.png}
 
 \textbf{Figure 2.3.1 Local-First Software Architecture Paradigm}
 
@@ -878,7 +892,7 @@ structurally consistent and fully queryable for longitudinal analysis
 (Dilling, 2020).
 
 \begin{quote}
-\includegraphics[width=4.83854in,height=3.42971in]{./media/image5.png}
+\includegraphics[width=4.83854in,height=3.42971in]{./media/image1.png}
 \end{quote}
 
 \textbf{Figure 2.3.2 Relational Database Theory}
@@ -915,7 +929,7 @@ multi-component architecture, ensuring that both retrospective baseline
 comparisons and prospective case projections are mathematically sound
 and operationally actionable for municipal health monitoring.
 
-\includegraphics[width=4.79688in,height=4.98875in]{./media/image3.png}
+\includegraphics[width=4.79688in,height=4.98875in]{./media/image2.png}
 
 \textbf{Figure 2.3.3 Epidemiological Threshold and Predictive Modeling
 Principles}
@@ -944,7 +958,7 @@ By reducing the "potential loss expectations" through visible security
 protocols, the system increases the user's intention to provide the
 granular data necessary for accurate health monitoring.
 
-\includegraphics[width=4.96354in,height=5.01108in]{./media/image2.png}
+\includegraphics[width=4.96354in,height=5.01108in]{./media/image5.png}
 
 \textbf{Figure 2.3.4 Privacy Calculus Theory}
 
@@ -972,7 +986,7 @@ as a sequential machine learning pipeline, the framework governs the
 flow of information across five distinct operational stages detailed
 below.
 
-\includegraphics[width=7.38021in,height=0.75944in]{./media/image1.png}
+\includegraphics[width=5.38021in,height=0.75944in]{./media/image3.png}
 
 \textbf{Figure 3.1 Conceptual Framework}
 
@@ -1043,92 +1057,73 @@ early-warning threshold modeling.
 
 Because data collection formats evolved across years, exemplified by
 schema variations ranging from detailed clinical classification columns
-in 2023 (forATENEO\_DENGUE\_2023.xlsx) to structured laboratory views in
-2024 (forATENEO\_DENGUE\_2024.xlsx) and compact weekly distributions in
-2025-2026,
-
-a rigorous parsing and harmonization pipeline was engineered and
-executed in Python (using pandas).
-
-\begin{itemize}
-\item
-  Parsing \& Schema Alignment Algorithm: The preprocessing script
-  systematically iterates through multi-year Excel sheets, standardizes
-  disparate column headers (mapping disparate labels such as Barangay,
-  (Current Address) Barangay, and (Permanent Address) Barangay into a
-  unified schema), and filters out anomalies.
-\item
-  Imputation \& Error Correction: Corrupted temporal fields and data
-  artifacts (such as \#REF! errors found in early 2023 monthly extracts)
-  were cleaned, imputed, and verified against reported Morbidity Weeks
-  (MW) and hospital admission logs. A complete listing of the
-  data-cleaning script and sanitized sample rows are provided in
-  Appendix A and B.
-\end{itemize}
+in 2023 (ATENEO\_DENGUE\_2023.xlsx) to structured laboratory views in
+2024 (ATENEO\_DENGUE\_2024.xlsx) and compact weekly distributions in
+2025-2026, a rigorous parsing and harmonization pipeline was engineered
+and executed in Python using the pandas library. Through this parsing
+and schema alignment algorithm, the preprocessing script systematically
+iterates through multi-year Excel sheets, standardizes disparate column
+headers (mapping variable labels such as Barangay, (Current Address)
+Barangay, and (Permanent Address) Barangay into a unified schema), and
+filters out data artifacts. Furthermore, imputation and error correction
+protocols were applied to clean corrupted temporal fields and data
+anomalies (such as \#REF! errors found in early 2023 monthly extracts),
+verifying entries against reported Morbidity Weeks and hospital
+admission logs. A complete listing of the data-cleaning script and
+sanitized sample rows are provided in Appendix A and Appendix B.
 
 \textbf{3.2.2 Exploratory Data Analysis (EDA) and Surveillance Bias
 Mitigation}
 
 Exploratory data analysis (EDA) of the multi-year public health datasets
-(N = 16,020 total archived records spanning 2023--2026) was executed to
+(N = 16,020 total archived records spanning 2023-2026) was executed to
 establish baseline epidemiological distributions, quantify
 monsoon-driven surge volumes, and identify localized reporting
-characteristics:
+characteristics.
 
-\begin{itemize}
-\item
-  Temporal Spikes \& Seasonality: Automated schema parsing across annual
-  archives reveals heavy surge concentration during third-quarter
-  monsoon periods. Specifically, the 2024 dataset (n = 7,714) records
-  peak transmission volumes in August (n = 1,327), September (n =
-  1,038), and July (n = 998), collectively comprising 43.5\% of the
-  annual caseload. Similarly, the 2026 surveillance logs (n = 1,534)
-  register mid-year peaks in July (n = 466) and June (n = 352),
-  confirming a strong tropical correlation between heavy precipitation
-  and vector proliferation.
-\item
-  Geographic Hotspots \& Demographics: Cross-tabulation of spatial and
-  demographic variables identifies high-density urban and peri-urban
-  clusters as primary disease drivers. High-incidence barangays,
-  specifically Bucana, Buhangin, Talomo, Calinan, and Ma-a, consistently
-  account for the bulk of caseloads (e.g., Bucana recorded 349 cases in
-  2024 and 67 cases in 2026; Buhangin recorded 321 cases in 2024 and 71
-  cases in 2026). Demographic profiling confirms that pediatric cohorts
-  bear the highest clinical burden, with the 5 to 9 age bracket
-  representing 26.4\% of total admissions, followed by the 10 to 14 and
-  1 to 4 brackets.
-\end{itemize}
+An examination of temporal spikes and seasonality via automated schema
+parsing across annual archives reveals heavy surge concentration during
+third-quarter monsoon periods. Specifically, the 2024 dataset (n =
+7,714) records peak transmission volumes in August (n = 1,327),
+September (n = 1,038), and July (n = 998), collectively comprising
+43.5\% of the annual caseload. Similarly, the 2026 surveillance logs (n
+= 1,534) register mid-year peaks in July (n = 466) and June (n = 352),
+confirming a strong tropical correlation between heavy precipitation and
+vector proliferation. Furthermore, cross-tabulation of geographic
+hotspots and demographics identifies high-density urban and peri-urban
+clusters as primary disease drivers. High-incidence barangays.
+
+Specifically, Bucana, Buhangin, Talomo, Calinan, and Ma-a consistently
+account for the bulk of caseloads (e.g., Bucana recorded 349 cases in
+2024 and 67 cases in 2026; Buhangin recorded 321 cases in 2024 and 71
+cases in 2026). Demographic profiling confirms that pediatric cohorts
+bear the highest clinical burden, with the 5 to 9 age bracket
+representing 26.4\% of total admissions, followed by the 10 to 14 and 1
+to 4 brackets.
 
 To ensure analytical validity within the LokalHealth surveillance
 architecture, structural public health reporting biases identified
-during pipeline ingestion were actively controlled:
-
-\begin{itemize}
-\item
-  Under-Reporting \& Access Bias: Mild dengue cases managed via home
-  care or outpatient self-medication bypass formal facility logging.
-  This systematic under-reporting artifact was mitigated by weighting
-  inpatient admission flags and laboratory-confirmed records
-  (case\_classification.ilike(\textquotesingle\%confirmed\%\textquotesingle))
-  in the primary dashboard analytics.
-\item
-  Geographic Reporting Skews: Densely populated urban barangays with
-  closer proximity to core health infrastructure naturally exhibit
-  higher reporting fidelity. Normalization protocols and
-  population-density denominators were integrated into regional risk
-  mapping to prevent facility-adjacent skewing from distorting
-  district-wide alert thresholds.
-\end{itemize}
+during pipeline ingestion were actively controlled. To mitigate
+under-reporting and access bias, where mild dengue cases managed via
+home care or outpatient self-medication bypass formal facility logging,
+primary dashboard analytics actively weight inpatient admission flags
+and laboratory-confirmed records
+(case\_classification.ilike(\textquotesingle\%confirmed\%\textquotesingle)).
+Additionally, to counteract geographic reporting skews where densely
+populated urban barangays with closer proximity to core health
+infrastructure naturally exhibit higher reporting fidelity,
+normalization protocols and population-density denominators were
+integrated into regional risk mapping to prevent facility-adjacent
+skewing from distorting district-wide alert thresholds.
 
 \textbf{3.2.3 Non-Parametric Baseline Threshold Formulation (P75)}
 
 To establish an early-warning risk stratification system without
 succumbing to the threshold distortion typical of hyper-endemic outlier
 years, this study rejects parametric mean-variance methods in favor of a
-robust non-parametric 75th percentile (P75) baseline.
-
-For each morbidity week w across historical baseline years, the endemic
-threshold is calculated as:
+robust non-parametric 75th percentile (P75) baseline. For each morbidity
+week w across historical baseline years, the endemic threshold is
+calculated as:
 
 Threshold\_w = Percentile\_75( \{ C\_\{y,w\} \textbar{} y ∈ Baseline
 Years \} )
@@ -1144,27 +1139,255 @@ Integration}
 
 Building upon the validated epidemiological foundation, the technical
 architecture integrates predictive machine learning models with a secure
-local dashboard backend:
+local dashboard backend through several coordinated layers.
+
+For predictive integration and training, time-series and classification
+algorithms ingest weekly aggregated case counts, meteorological
+indicators, and historical lag features to forecast local outbreak
+trajectories, with models trained using rolling temporal train-test
+splits to simulate real-world local health forecasting constraints. For
+backend security and relational storage, patient-level records and
+aggregated metrics are housed within encrypted relational storage
+architectures (app.py), enforcing strict role-based access control to
+comply with data privacy standards. Finally, the deployment interface
+leverages modular web templates (dashboard.html, records.html,
+reports.html) to provide real-time epidemiological tracking, automated
+threshold alerts, and geospatial hotspot visualization for local health
+decision-makers.
+
+\textbf{3.2.5 Hardware \& Software Environment Specifications}
+
+To ensure deployment stability and reproducibility, the LokalHealth
+surveillance platform was developed and tested locally on an ASUS
+VivoBook (M1403QA) equipped with an AMD Ryzen 5 5600H processor, 8.00 GB
+of RAM, and a 477 GB solid-state drive running Windows 11. The software
+environment is anchored by Python 3.12, utilizing Flask 3.1.3 as the
+core web framework, Scikit-Learn for random forest regression modeling,
+and SQLCipher for encrypted relational data storage. The complete
+configuration profile of the system environment is detailed in Table
+3.2.5.
+
+\textbf{Table 3.1} System Hardware and Software Environment Table
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1571}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2340}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3157}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2933}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Component/Tool
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Specification/Version
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Hardware
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Host Device \& CPU
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ASUS VivoBook (AMD Ryzen 5 5600H, 3.30 GHz)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Primary workstation utilized for local server execution and model
+training.
+\end{minipage} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Hardware
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+System Memory
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+8.00 GB RAM (3200 MT/s)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Dedicated working memory allocated for local runtime and data caching.
+\end{minipage} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Software
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Operating System
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Windows 11 Home (Version 25H2)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Host environment governing local application processes.
+\end{minipage} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Software
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Backend Framework
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Flask 3.1.3 (Python 3.12)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Core WSGI framework handling routing, authentication, and business
+logic.
+\end{minipage} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Software
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Machine Learning
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Scikit-Learn 1.7.2 (RandomForestRegressor)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Powers the predictive forecasting engine for weekly case projections.
+\end{minipage} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Software
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Database \& Security
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+SQLite with SQLCipher (sqlcipher3)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Relational database engine enforcing robust at-rest encryption via
+environment variables.
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+}
+
+\textbf{3.2.6 Version Control, Repository Structure, \& Reproducibility}
+
+\textbf{3.2.6.1 Architectural Modularity and Directory Design}
+
+To ensure architectural maintainability, software reliability, and
+verifiable deployment, the LokalHealth surveillance platform is
+structured around a modular, production-ready directory layout that
+strictly enforces a separation of concerns. The root repository
+coordinates core system execution through a centralized entry point
+(app.py), which integrates the Flask web framework, SQLCipher database
+handlers, and the machine learning predictive API.
+
+Surrounding this core engine are dedicated operational directories,
+including an instance storage directory reserved for runtime-generated
+and environment-specific database instances, a template directory
+housing Jinja2-based views for user authentication and dashboard
+surveillance interfaces, and a testing directory containing automated
+test fixtures to continuously validate data ingestion and forecasting
+pipelines.
+
+\textbf{3.2.6.2 Secure State Isolation and Version Control Integrity}
+
+To comply with healthcare data privacy requirements and prevent
+accidental exposure of sensitive medical records or administrative
+credentials, the repository enforces strict state isolation via version
+control exclusion rules (.gitignore).
+
+The encrypted SQLite/SQLCipher database (database.db) resides entirely
+within the local instance directory and is systematically barred from
+source tracking. Configuration security is further governed through
+environment variable templates (.env.example), requiring explicit
+administrative injection of the cryptographic passphrase
+(DB\_PASSPHRASE) required to decrypt the database at runtime.
+
+\textbf{3.2.6.3 Reproducibility and Environment Bootstrapping}
+
+System reproducibility across distinct local or municipal server
+environments is guaranteed through strict dependency management via a
+pinned package specification matrix (requirements.txt). This ensures
+consistent execution behavior across core analytical libraries,
+including Pandas for epidemiological data manipulation, Scikit-Learn for
+random forest regression modeling, and SQLCipher for encrypted
+relational storage. Furthermore, to eliminate friction during initial
+system deployment, the application incorporates an automated
+bootstrapping mechanism that detects uninitialized environments and
+securely seeds the default primary administrative account upon initial
+launch, allowing immediate local-first verification and audit testing.
+
+\textbf{3.2.7 Model \& Optimization Rigor}
+
+\textbf{3.2.7.1 Baseline Selection and Justification}
+
+To rigorously evaluate the system\textquotesingle s performance, two
+distinct baseline approaches are established across retrospective and
+prospective analytics.
+
+For retrospective surveillance, the historical 75th percentile (P75)
+threshold method is utilized as the statistical baseline. Grounded in
+standard epidemiological surveillance theory (Chapter 2, Section 2.3.3),
+this non-parametric baseline is traditionally deployed by municipal
+health units to detect localized disease outbreaks because it mitigates
+distortion from extreme seasonal outliers while establishing an
+objective historical threshold for alert triggers.
+
+For prospective forecasting, the system utilizes a Random Forest
+Regressor (n\_estimators = 100, random\_state = 42) as the computational
+baseline.
+
+As established in Chapter 2 (Section 2.3.3), municipal case counts often
+suffer from non-linear seasonal trends and reporting lags. While
+traditional linear models (such as ARIMA or standard linear regression)
+fail to capture sudden environmental outbreak shocks, the ensemble
+bagging of decision trees in the Random Forest Regressor robustly models
+complex non-linear feature interactions, such as past lag counts
+combined with specific morbidity week indicators, without requiring
+rigid data stationarity transformations.
+
+\textbf{3.2.7.2 Hyperparameters and Tuning Strategy}
+
+The project repository follows a modular, production-ready directory
+layout separating configuration, application logic, secure storage, and
+testing fixtures.
+
+For fixed parameters, the random\_state is set to 42 to ensure
+deterministic reproducibility across experimental runs and validation
+folds, while the split quality is optimized using a squared error
+criterion. Standard defaults for minimum samples per split and leaf
+nodes are maintained to allow deep tree growth appropriate for moderate
+municipal surveillance datasets.
+
+When configuring variable parameters, the number of estimators is
+evaluated over a grid of {[}50, 100, and 200{]}, and the maximum tree
+depth is tested across options of {[}none, 10, 20, and 30{]}. To prevent
+data leakage from future epidemic weeks into past training folds, the
+search strategy relies exclusively on time-series cross-validation using
+walk-forward validation principles.
+
+\textbf{3.2.7.3 Evaluation and Computational Metrics}
+
+Model performance is assessed using a dual framework combining
+epidemiological predictive accuracy and software efficiency metrics. For
+predictive accuracy, the system relies on the Root Mean Squared Error to
+penalize larger outbreaks or missed surge peaks heavily, alongside the
+Mean Absolute Error to quantify the average magnitude of absolute
+forecast errors. These predictive outputs map directly into operational
+warning thresholds evaluated against historical 75th percentiles
+(Threshold\_w = 75th Percentile (\{C\_\{y,w\} \textbar{} y in Baseline
+Years\}), categorizing municipal risk conditions as follows:
 
 \begin{itemize}
 \item
-  Predictive Integration \& Training: Time-series and classification
-  algorithms ingest weekly aggregated case counts, meteorological
-  indicators, and historical lag features to forecast local outbreak
-  trajectories. Models are trained using rolling temporal train-test
-  splits to simulate real-world local health forecasting constraints.
+  Green (Normal): Cases \textless{} 0.75 x Threshold\_w
 \item
-  Backend Security \& Relational Storage: Patient-level records and
-  aggregated metrics are housed within encrypted relational storage
-  architectures (app.py), enforcing strict role-based access control
-  (RBAC) to comply with data privacy standards.
+  Yellow (Warning / Pre-Surge): 0.75 x Threshold\_w \textless{} Cases
+  \textless{} Threshold\_w
 \item
-  Deployment Interface: The resulting web application interfaces with
-  modular templates (dashboard.html, records.html, reports.html) to
-  provide real-time epidemiological tracking, automated threshold
-  alerts, and geospatial hotspot visualization for local health
-  decision-makers.
+  Red (High-Risk / Breach): Cases \textgreater{} Threshold\_w
 \end{itemize}
+
+To complement predictive evaluation, system efficiency is benchmarked by
+ensuring training times per weekly incremental update remain under 500
+ms for rapid REST API response times, while maintaining resident set
+size memory consumption below 150 MB to support lightweight deployment
+on standard municipal server hardware.
+
+\textbf{3.2.7.4 Statistical Comparison Tests}
+
+To rigorously validate whether the predictive model outperforms naive
+persistence baselines---such as predicting that week t + 1 equals week
+t- specific statistical significance tests are applied to the
+forecasting residuals. A paired sample t-test is applied if the residual
+distributions successfully pass normality checks via the Shapiro-Wilk
+test (p \textgreater{} 0.05).
+
+Alternatively, the Wilcoxon signed-rank test is utilized as a
+non-parametric option when forecast error distributions exhibit skewness
+or outliers typical of municipal epidemic reporting anomalies, with a
+standard significance threshold of alpha = 0.05 strictly enforced across
+evaluations.
 
 \textbf{3.3 Operational Framework}
 
@@ -1175,7 +1398,7 @@ conceptual models into a functional web application designed for local
 health monitoring using official registries acquired from the City
 Health Office (CHO) in Talomo District.
 
-\includegraphics[width=7.10336in,height=3.29317in]{./media/image6.png}
+\includegraphics[width=5.10336in,height=3.29317in]{./media/image4.png}
 
 \textbf{Figure 3.3 Operational Framework}
 
