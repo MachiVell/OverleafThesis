@@ -82,7 +82,6 @@
 \date{}
 
 \begin{document}
-
 \begin{titlepage}
 
 \begin{center}
@@ -102,10 +101,7 @@
 \vspace{0.8in}
 
 {\Large\textbf{
-LOCAL-FIRST DENGUE SURVEILLANCE:
-COMBINING HISTORICAL P75 BASELINES
-WITH RANDOM FOREST PREDICTIVE MODELING
-FOR LOCAL HEALTH UNITS
+Local-First Dengue Surveillance: Integrating Historical P75 Baselines and Random Forest Predictive Modeling for Outbreak Risk Assessment
 }}
 
 \vspace{0.8in}
@@ -295,8 +291,8 @@ Frameworks}..............................................
 ..............................................................................................
 \textbf{39}
 
-\textbf{3.2.1 Data Acquisition, Provenance, and Preprocessing Pipeline}
-............. \textbf{39}
+\textbf{3.2.1 Data Acquisition and Preprocessing Pipeline} .............
+\textbf{39}
 
 \textbf{3.2.2 Exploratory Data Analysis and Missing Data Bias
 Mitigation} ............ \textbf{41}
@@ -313,16 +309,13 @@ Discrepancies} .............. \textbf{41}
 \textbf{3.2.3 Non-Parametric Baseline Threshold Formulation (P75)}
 ..................... \textbf{45}
 
-\textbf{3.2.3.1 Historical Baseline Window Mapping}
-................................................ \textbf{45}
-
-\textbf{3.2.3.2 Handling of Missing and Incomplete Surveillance Data}
+\textbf{3.2.3.1 Handling of Missing and Incomplete Surveillance Data}
 .................. \textbf{46}
 
-\textbf{3.2.3.3 Statistical Behavior of Small Sample Size (N=3)}
+\textbf{3.2.3.2 Statistical Behavior of Small Sample Size (N=3)}
 .............................. \textbf{47}
 
-\textbf{3.2.3.4 Operational Sensitivity Parameter and Staged Risk
+\textbf{3.2.3.3 Operational Sensitivity Parameter and Staged Risk
 Framework} ... \textbf{48}
 
 \textbf{3.2.4 System Architecture, Security, and Machine Learning
@@ -353,8 +346,8 @@ Integration} ... \textbf{50}
 \textbf{3.2.7.2 Hyperparameters and Tuning Strategy}
 ............................................. \textbf{56}
 
-\textbf{3.2.7.3 Evaluation and Computational Metrics}
-............................................. \textbf{57}
+\textbf{3.2.7.3 Evaluation, Benchmarks, and Statistical Validation}
+......................... \textbf{57}
 
 \textbf{3.2.7.4 Statistical Comparison Tests}
 .............................................................
@@ -440,7 +433,7 @@ The system\textquotesingle s core integrates a dual-analytic approach:
 historical non-parametric 75th percentile (P75) baselines establish
 real-time epidemic risk tiers (Green, Yellow, Red), while a Random
 Forest Regressor generates 1-week-ahead predictive case trajectories. To
-support operational workflows, the platform automates early warning
+support operational workflows, the platform automates outbreak warning
 status notifications and populates an intervention priority watchlist
 tracking barangay-level case activity (High Risk, Rising, Stable). By
 combining historical statistical thresholds with machine learning
@@ -489,10 +482,11 @@ extremes or outlier values (Ouédraogo et al., 2023; Rysava et al.,
 2026). When paired with predictive algorithms such as Random Forest
 Regression, which effectively capture non-linear temporal trends in
 epidemiological data (Zhao et al., 2020; Wang et al., 2025) these
-systems can support routine early warning evaluations. Integrating such
-analytical methods into rule-based decision support logic provides
-health personnel with clear operational guidance during high-caseload
-periods (Nguyen \& Ming, 2023).
+systems can support routine early warning evaluations and proactive
+outbreak risk assessment. Integrating such analytical methods into
+rule-based decision support logic provides health personnel with clear
+operational guidance during high-caseload periods (Nguyen \& Ming,
+2023).
 
 To address these data processing and security constraints, this study
 presents a local-first Web-Based Public Health Decision Support System
@@ -501,10 +495,12 @@ using a Python processing pipeline and an encrypted relational SQLite
 architecture via SQLCipher (Zhang \& Yin, 2021), the system operates on
 a local deployment model to maintain data availability in
 low-connectivity environments (Paluyo et al., 2022; Bodducherla, 2026)
-while complying with the Data Privacy Act of 2012 (RA 10173). By
-structuring data ingestion, descriptive spatial tracking, predictive
-regression, and rule-based alert triggers, the system provides a
-practical decision-support tool for local health monitoring.
+while complying with the Data Privacy Act of 2012 (RA 10173).
+
+By structuring data ingestion, barangay-level case aggregation,
+predictive regression, and rule-based alert triggers, the system
+provides a local-first public health analytics and risk assessment
+system for local health monitoring.
 
 \subsubsection{\texorpdfstring{\textbf{1.2 Statement of the
 Problem}}{1.2 Statement of the Problem}}\label{statement-of-the-problem}
@@ -513,17 +509,20 @@ Problem}}{1.2 Statement of the Problem}}\label{statement-of-the-problem}
 Problem}}{1.2.1 General Problem}}\label{general-problem}
 
 Local health units tracking localized vector-borne diseases like Dengue
-frequently face limitations in rapid data aggregation and predictive
-analytics. Conventional tracking workflows rely heavily on manual record
-entry or rigid spreadsheet templates, delaying the identification of
-epidemiological trends. Furthermore, these systems often lack integrated
-mechanisms to automatically compute historical epidemic baselines,
-forecast near-term case trajectories, and prioritize community-level
-interventions under secure multi-user role constraints. To address these
-computational and decision-support challenges, this research
-investigates the design, implementation, and technical evaluation of
-LokalHealth, a local-first, web-based epidemiological surveillance and
-decision-support system.
+often encounter operational friction in rapid data aggregation and
+predictive analytics. Conventional tracking workflows rely heavily on
+manual record entry or spreadsheet-based templates, which can introduce
+processing delays in identifying epidemiological trends. Furthermore,
+these workflows typically operate independently of automated
+computational mechanisms required to compute historical epidemic
+baselines, generate near-term case forecasts, and prioritize
+community-level interventions under secure multi-user role constraints.
+To address these computational and decision-support challenges, this
+research focuses on the design, development, and technical evaluation of
+a local-first, web-based epidemiological surveillance system that
+integrates historical 75th percentile (P75) epidemic baselines and
+Random Forest regression forecasting for granular Dengue outbreak risk
+assessment.
 
 \subsubsection{\texorpdfstring{\textbf{1.2.2 Specific
 Problems}}{1.2.2 Specific Problems}}\label{specific-problems}
@@ -535,30 +534,11 @@ Problems}}{1.2.2 Specific Problems}}\label{specific-problems}
   Excel (.xlsx) and CSV (.csv) surveillance templates into a uniform,
   relational database schema?
 \item
-  How effectively does the system\textquotesingle s analytical and
-  forecasting framework execute core epidemiological computations,
-  specifically:
-
-  \begin{enumerate}
-  \def\labelenumii{\alph{enumii}.}
-  \item
-    Descriptive Aggregations \& Risk Tiers: Calculating morbidity trends
-    by Morbidity Week and Month, and evaluating active case volumes
-    against a Historical 75th percentile (P75) epidemic threshold to
-    categorize risk into standard public health tiers (Green, Yellow,
-    Red);
-  \item
-    Machine Learning Forecasting \& Baseline Comparison: Integrating a
-    Random Forest regression model to analyze historical lags and
-    generate next-week case projections, benchmarked centrally against
-    simpler time-series baselines (naïve persistence, historical
-    seasonal median, and linear regression) to quantify predictive
-    improvement; and
-  \item
-    Intervention Priority Ranking: Automatically compiling a watchlist
-    that ranks barangays by active caseloads and year-to-date (YTD)
-    totals to support targeted resource allocation?
-  \end{enumerate}
+  How can the system\textquotesingle s analytical and forecasting
+  framework accurately execute core epidemiological computations,
+  specifically through descriptive aggregations and P75 risk tiers,
+  benchmarked machine learning forecasting, and automated intervention
+  priority ranking, to support public health decisions?
 \item
   How does the application implement and enforce secure data management
   and multi-user collaboration, specifically through encrypted local
@@ -577,12 +557,12 @@ Study}}{1.3 Objectives of the Study}}\label{objectives-of-the-study}
 \paragraph{\texorpdfstring{\textbf{1.3.1 General
 Objective}}{1.3.1 General Objective}}\label{general-objective}
 
-The main objective of this study is to engineer, implement, and
-technically evaluate LokalHealth, a local-first web-based
-epidemiological surveillance and decision support system designed to
-streamline point-of-care logging, batch template ingestion, historical
-baseline risk-tier categorization, and machine learning-powered
-forecasting for localized Dengue tracking.
+The main objective of this study is to engineer, implement, and evaluate
+a local-first, web-based epidemiological surveillance and
+decision-support system designed to streamline point-of-care logging,
+batch template ingestion, historical baseline risk-tier categorization,
+and Random Forest-powered forecasting for localized Dengue outbreak risk
+assessment.
 
 \textbf{1.3.2 Specific Objectives}
 
@@ -619,31 +599,29 @@ Study}}{1.4 Significance of the Study}}\label{significance-of-the-study}
 This study presents distinct technical, operational, and methodological
 contributions across the domains of municipal health governance, public
 health informatics, and global sustainable development frameworks. For
-local health units and primary care practitioners, the platform provides
-City Health Officers and Barangay Health Workers (BHWs) with a
-structured digital infrastructure designed to process high-resolution
-Dengue registries at the community level. By deploying a local-first
-software architecture, the platform maintains continuous operational
-availability for record creation and analytical reporting in edge
-environments prone to network disruptions (Paluyo et al., 2022;
-Bodducherla, 2026).
+local health units and primary care practitioners, the developed system
+provides City Health Officers and Barangay Health Workers (BHWs) with a
+structured digital infrastructure designed to process case-level Dengue
+registries at the community level. By deploying a local-first software
+architecture, the platform maintains continuous operational availability
+for record creation and analytical reporting in edge environments prone
+to network disruptions.
 
-Additionally, automating micro-level spatial mapping and temporal
-distribution curves supports a transition toward proactive
-epidemiological surveillance across Davao City's 182 barangays (Olana et
-al., 2025). Within health informatics and computational software design,
-this research demonstrates a reproducible digital paradigm that links
-case-level patient attributes with statistical epidemic thresholds and
-machine learning forecasting algorithms within resource-constrained edge
+Additionally, automating the aggregation of barangay-level case counts
+and weekly distribution curves supports a transition toward proactive
+epidemiological surveillance across Davao City. Within health
+informatics and computational software design, this research
+demonstrates a reproducible digital paradigm that links case-level
+patient attributes with statistical epidemic thresholds and machine
+learning forecasting algorithms within resource-constrained edge
 deployments. Engineered with an encrypted, synchronized relational
 SQLite database and Python analytics processing pipelines via SQLCipher
-256-bit AES encryption at rest (Zhang \& Yin, 2021), the study
-establishes empirical performance metrics regarding database query
-latency and offline data synchronization integrity. Furthermore,
-combining non-parametric historical 75th percentile (P75) baseline
-limits with Random Forest regression offers an adaptable software design
-pattern for localized decision support systems (Ouédraogo et al., 2023;
-Zhao et al., 2020; Wang et al., 2025).
+256-bit AES encryption at rest, the study establishes empirical
+performance metrics regarding database query latency and offline data
+synchronization integrity. Combining non-parametric historical 75th
+percentile (P75) baseline limits with Random Forest regression offers an
+adaptable software design pattern for localized decision support
+systems.
 
 Furthermore, this research supports several United Nations Sustainable
 Development Goals (SDGs). Specifically, it advances SDG 3 (Target 3.D)
@@ -658,47 +636,46 @@ planning.
 Limitations}}{1.5 Scope and Limitations}}\label{scope-and-limitations}
 
 The technical scope of this study comprises the development and
-evaluation of a Web-Based Public Health Decision Support System
+evaluation of a web-based public health decision support system
 incorporating an integrated analytical framework for localized Dengue
 surveillance in Davao City, utilizing case data from 2023 to 2026. The
 software architecture consists of a Python analytics processing engine
 and a relational SQLite database configured for local-first operations
-to support local data query execution during network disconnection
-(Paluyo et al., 2022).
+to support local data query execution during network disconnection.
 
-The dataset is defined by eight standardized Dengue case variables:
-Morbidity Week, Morbidity Month, District, Barangay, Age, Sex, Clinical
+The dataset is defined by standardized Dengue case attributes: Morbidity
+Week, Morbidity Month, District, Barangay, Age, Sex, Clinical
 Classification, and Case Classification. The system processes these
 attributes through three core analytical components: Descriptive
-analytics generating temporal distribution curves and barangay
-distribution summaries; Predictive analytics calculating 75th percentile
-historical baselines and Random Forest regression case trajectories
-(Ouédraogo et al., 2023; Zhao et al., 2020); and Prescriptive decision
-support logic executing rule-based alert triggers (Green for Normal,
-Yellow for Warning, and Red for High Risk Level). Data management
-complies with the Philippine Data Privacy Act of 2012 (RA 10173) by
-excluding personally identifiable information, including patient names,
-street addresses, and contact details. Access governance is structured
-through Role-Based Access Control (RBAC), defining operational
-privileges for Barangay Health Workers (BHWs) and City Health Officers.
+analytics generating temporal case distributions and barangay summaries;
+Predictive analytics calculating 75th percentile historical baselines
+and Random Forest regression case trajectories; and Prescriptive
+decision support logic executing rule-based alert triggers (Green for
+Normal, Yellow for Warning, and Red for High Risk Level). Data
+management complies with the Philippine Data Privacy Act of 2012 (RA
+10173) by excluding personally identifiable information, including
+patient names, exact street addresses, and contact details. Access
+governance is structured through Role-Based Access Control (RBAC),
+defining operational privileges for Barangay Health Workers (BHWs) and
+City Health Officers.
 
 System evaluation is limited to software performance metrics,
-specifically database query latency (in milliseconds), offline-to-online
-data synchronization consistency, and system interface efficiency
-evaluated through technical performance profiling and component
-response-time verification and extends to operational usefulness through
-user-oriented evaluations, including System Usability Scale (SUS)
-assessments with BHWs, task completion timing tests, and expert
-validation of intervention watchlists by City Health Officers. The
-system does not include automated diagnostic algorithms, clinical
-decision support for patient treatment, or biological sensor
-integration. Offline database capabilities are limited to local record
-entry, querying, and reporting, requiring active network connectivity
-solely for central administrative database synchronization. Spatial and
-temporal analytical functions process municipal-level records across
-Davao City, with system deployment and interface assessments structured
-around operational workflows typical of local health units such as those
-in Talomo District.
+specifically database query latency (in milliseconds), data
+synchronization consistency, and system interface efficiency evaluated
+through technical performance profiling and component response-time
+verification. It extends to operational usefulness through user-oriented
+evaluations, including System Usability Scale (SUS) assessments with
+BHWs, task completion timing tests, and validation of intervention
+watchlists by City Health Officers. The system does not include
+automated diagnostic algorithms, clinical decision support for patient
+treatment, or biological sensor integration. Offline database
+capabilities are limited to local record entry, querying, and reporting,
+requiring active network connectivity solely for central administrative
+database synchronization. Spatial and temporal analytical functions
+process municipal-level records across Davao City, with system
+deployment and interface assessments structured around operational
+workflows typical of local health units such as those in Talomo
+District.
 
 \subsubsection{}\label{section}
 
@@ -799,42 +776,38 @@ Modern epidemiological decision support systems utilize multi-tiered
 analytical workflows to convert transactional case records into
 actionable public health intelligence. To structure the progression from
 raw intake data to decision support, the platform implements a
-three-tier computational engine:
+three-tier computational engine.
 
-\begin{itemize}
-\item
-  Descriptive Analytics: Serves as the primary visualization layer,
-  aggregating patient attributes into temporal morbidity trend charts,
-  categorical distributions (by age, sex, and clinical classification),
-  and ranked barangay-level risk distribution tables. This provides
-  health officers with immediate temporal visibility and structured
-  spatial breakdowns across Davao City without relying on complex GIS
-  map rendering (Olana et al., 2025).
-\item
-  Predictive Modeling (P75 Baseline Limits): Implements non-parametric
-  statistical methods, utilizing historical 75th percentile (P75)
-  baseline calculations to establish dynamic epidemic thresholds. By
-  evaluating historical case distributions, this method accounts for
-  seasonal vector dynamics and identifies statistical surge deviations
-  prior to peak periods without skewing from extreme data outliers
-  (Ouédraogo et al., 2023; Rysava et al., 2026).
-\item
-  Predictive Forecasting (Random Forest Regression): Incorporates
-  tree-based ensemble machine learning models, specifically a Random
-  Forest Regressor, to project 1-week-ahead case trajectories.
-  Comparative health informatics literature demonstrates that Random
-  Forest models capture complex non-linear temporal trends with high
-  precision compared to standard linear baselines (Zhao et al., 2020;
-  Kuo et al., 2024; Wang et al., 2025).
-\item
-  Decision Support Protocols: Converts threshold metrics and model
-  outputs into operational decision support using deterministic
-  rule-based logic. By evaluating active caseloads against historical
-  limits, the platform automatically generates standardized early
-  warning triggers (Green for Normal, Yellow for Warning, and Red for
-  High-Risk Alert) paired with targeted intervention protocols to guide
-  municipal response efforts (Nguyen \& Ming, 2023).
-\end{itemize}
+As a primary visualization layer, the platform aggregates patient
+attributes into temporal morbidity trend charts, categorical
+distributions (by age, sex, and clinical classification), and ranked
+barangay-level risk distribution tables. This provides health officers
+with immediate temporal visibility and structured spatial breakdowns
+across Davao City without relying on complex GIS map rendering (Olana et
+al., 2025).
+
+To establish dynamic epidemic thresholds, the platform implements
+non-parametric statistical methods utilizing historical 75th percentile
+(P75) baseline calculations. By evaluating historical case
+distributions, this method accounts for seasonal vector dynamics and
+identifies statistical surge deviations prior to peak periods without
+skewing from extreme data outliers (Ouédraogo et al., 2023; Rysava et
+al., 2026).
+
+Furthermore, tree-based ensemble machine learning models, specifically a
+Random Forest Regressor, are incorporated to project 1-week-ahead case
+trajectories. Comparative health informatics literature demonstrates
+that Random Forest models capture complex non-linear temporal trends
+with high precision compared to standard linear baselines (Zhao et al.,
+2020; Kuo et al., 2024; Wang et al., 2025).
+
+Lastly, threshold metrics and model outputs are converted into
+operational decision support using deterministic rule-based logic. By
+evaluating active caseloads against historical limits, the platform
+automatically generates standardized early warning triggers (Green for
+Normal, Yellow for Warning, and Red for High-Risk Alert) paired with
+targeted intervention protocols to guide municipal response efforts
+(Nguyen \& Ming, 2023).
 
 \textbf{2.2.4 Health Data Security, Regulatory Compliance, and
 Governance}
@@ -932,9 +905,9 @@ system provides local data ownership and operational continuity for
 primary health units during network disruptions while maintaining
 central data consolidation capability.
 
-\includegraphics[width=5.38937in,height=3.70313in]{./media/image1.png}
+\includegraphics[width=5.38937in,height=3.70313in]{./media/image2.png}
 
-\textbf{Figure 2.3.1 Local-First Software Architecture Paradigm}
+\textbf{Figure 2.1 Local-First Software Architecture Paradigm}
 
 \textbf{2.3.2 Relational Database Theory}
 
@@ -946,7 +919,7 @@ and typed attribute fields, which collectively eliminate data redundancy
 and entry anomalies.
 
 In healthcare and medical informatics, applying relational schemas
-addresses the severe limitations of non-conventional flat-file or
+addresses the limitations of non-conventional flat-file or
 spreadsheet-based tracking, which are prone to record corruption and
 duplicate entries (Dilling, 2020; Thomer \& Wickett, 2020). By
 structuring epidemiological variables such as Morbidity Week, Morbidity
@@ -957,10 +930,10 @@ structurally consistent and fully queryable for longitudinal analysis
 (Dilling, 2020).
 
 \begin{quote}
-\includegraphics[width=4.83854in,height=3.42971in]{./media/image3.png}
+\includegraphics[width=4.83854in,height=3.42971in]{./media/image1.png}
 \end{quote}
 
-\textbf{Figure 2.3.2 Relational Database Theory}
+\textbf{Figure 2.2 Relational Database Theory}
 
 \paragraph{}\label{section-2}
 
@@ -994,9 +967,9 @@ multi-component architecture, ensuring that both retrospective baseline
 comparisons and prospective case projections are mathematically sound
 and operationally actionable for municipal health monitoring.
 
-\includegraphics[width=4.79688in,height=4.98875in]{./media/image2.png}
+\includegraphics[width=4.79688in,height=4.98875in]{./media/image5.png}
 
-\textbf{Figure 2.3.3 Epidemiological Threshold and Predictive Modeling}
+\textbf{Figure 2.3 Epidemiological Threshold and Predictive Modeling}
 
 \subsubsection{}\label{section-6}
 
@@ -1022,9 +995,9 @@ By reducing the "potential loss expectations" through visible security
 protocols, the system increases the user's intention to provide the
 granular data necessary for accurate health monitoring.
 
-\includegraphics[width=4.96354in,height=5.01108in]{./media/image5.png}
+\includegraphics[width=4.96354in,height=5.01108in]{./media/image4.png}
 
-\textbf{Figure 2.3.4 Privacy Calculus Theory}
+\textbf{Figure 2.4 Privacy Calculus Theory}
 
 \subsubsection{}\label{section-10}
 
@@ -1043,87 +1016,74 @@ METHODOLOGY}}{CHAPTER 3: METHODOLOGY}}\label{chapter-3-methodology}
 
 \textbf{3.1 Conceptual Framework}
 
-The conceptual architecture of this study outlines the theoretical and
-computational progression required to transform raw epidemiological
-surveillance data into actionable public health intelligence. Structured
-as a sequential machine learning pipeline, the framework governs the
-flow of information across six distinct operational stages detailed
-below.
+The conceptual architecture of this study, illustrated in Figure 3.1,
+outlines the theoretical and computational progression required to
+transform raw epidemiological surveillance data into actionable public
+health intelligence. Structured as a sequential machine learning
+pipeline, the framework governs the flow of information across six
+distinct operational stages detailed below.
 
-\includegraphics[width=6.90273in,height=2.52215in]{./media/image4.png}
+\includegraphics[width=6.90273in,height=2.52215in]{./media/image3.png}
 
 \textbf{Figure 3.1 Conceptual Framework}
 
-\textbf{3.1.1 Data Gathering Phase}
-
-This foundational stage involves the systematic ingestion and collection
-of multi-year municipal Dengue case registries sourced from official
-public health repositories and municipal health offices. The gathered
-data captures critical structured parameters essential for
-epidemiological profiling, including Morbidity Weeks, Morbidity Months,
-Districts, Barangay locations, demographic attributes (such as age and
-sex), and detailed clinical as well as case classifications. This
-establishes the raw data repository necessary for subsequent temporal
-analysis and modeling.
-
-\subsubsection{\texorpdfstring{\textbf{3.1.2 Data Preprocessing and
-Parsing
-Phase}}{3.1.2 Data Preprocessing and Parsing Phase}}\label{data-preprocessing-and-parsing-phase}
-
-To ensure data integrity, this phase enforces automated schema
-normalization, formatting standardization, and cross-temporal data
-parsing. It addresses anomalies, manages inconsistent headers across
-legacy registries, and applies imputation logic to handle missing
-clinical or temporal parameters. By cleaning and harmonizing raw
-records, the pipeline transforms disparate registry inputs into a
-synchronized, high-quality time-series dataset ready for analytical
-computations.
-
-\subsubsection{\texorpdfstring{\textbf{3.1.3 Descriptive and Threshold
-Analysis
-Phase}}{3.1.3 Descriptive and Threshold Analysis Phase}}\label{descriptive-and-threshold-analysis-phase}
-
-Moving from data preparation to analytics, this phase applies historical
-non-parametric statistical calculations, specifically establishing the
-75th percentile (P75) baseline limit derived from multi-year historical
-distributions. By evaluating current case counts against these
-historical baselines, the system categorizes disease transmission trends
-into distinct municipal epidemic risk tiers: Green (Normal State),
-Yellow (Warning/Pre-surge State), and Red (High-Risk/Threshold Breach
-State).
-
-\subsubsection{\texorpdfstring{\textbf{3.1.4 Predictive Modeling
-Phase}}{3.1.4 Predictive Modeling Phase}}\label{predictive-modeling-phase}
-
-Serving as the core forecasting engine, this phase employs advanced
-machine learning regression algorithms, notably the
-RandomForestRegressor. The model leverages historical temporal features,
-including immediate past case counts (lag\_1, lag\_2) and specific
-morbidity week indicators, to train on historical patterns and project
-1-week-ahead case trajectories and anticipated municipal risk shifts.
-
-\subsubsection{\texorpdfstring{\textbf{3.1.5 Decision Support
-Phase}}{3.1.5 Decision Support Phase}}\label{decision-support-phase}
-
-This operational phase translates complex predictive outputs, historical
-threshold breaches, and real-time case volumes into practical,
-user-facing intelligence. It generates automated priority watchlists and
-risk-ranking categories (such as Surge, Rising, and Stable) tailored for
-Barangay Health Workers (BHWs) and local health authorities. This
-enables front-line workers to identify high-risk barangays early and
-prioritize localized vector control interventions.
-
-\subsubsection{\texorpdfstring{\textbf{3.1.6 System Evaluation
-Phase}}{3.1.6 System Evaluation Phase}}\label{system-evaluation-phase}
-
-The final stage of the architecture encompasses a system performance
-validation and usability assessment. It combines quantitative accuracy
-verification using error metrics such as Root Mean Squared Error (RMSE)
-and Mean Absolute Error (MAE) with qualitative evaluations, including
-System Usability Scale (SUS) scoring and task completion tracking by
-health worker evaluators. This ensures that the deployed framework meets
-both technical predictive standards and practical operational usability
-requirements.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The foundational data gathering stage involves the systematic
+  ingestion and collection of multi-year municipal Dengue case
+  registries sourced from official public health repositories and
+  municipal health offices. The gathered data captures critical
+  structured parameters essential for epidemiological profiling,
+  including Morbidity Weeks, Morbidity Months, Districts, Barangay
+  locations, demographic attributes (such as age and sex), and detailed
+  clinical as well as case classifications. This establishes the raw
+  data repository necessary for subsequent temporal analysis and
+  modeling.
+\item
+  During the data preprocessing and parsing phase, the platform enforces
+  automated schema normalization, formatting standardization, and
+  cross-temporal data parsing to ensure data integrity. It addresses
+  anomalies, manages inconsistent headers across legacy registries, and
+  applies imputation logic to handle missing clinical or temporal
+  parameters. By cleaning and harmonizing raw records, the pipeline
+  transforms disparate registry inputs into a synchronized, high-quality
+  time-series dataset ready for analytical computations.
+\item
+  Moving from data preparation to analytics, the descriptive and
+  threshold analysis phase applies historical non-parametric statistical
+  calculations, specifically establishing the 75th percentile (P75)
+  baseline limit derived from multi-year historical distributions. By
+  evaluating current case counts against these historical baselines, the
+  system categorizes disease transmission trends into distinct municipal
+  epidemic risk tiers: Green (Normal State), Yellow (Warning/Pre-surge
+  State), and Red (High-Risk/Threshold Breach State).
+\item
+  Serving as the core forecasting engine, the predictive modeling phase
+  employs advanced machine learning regression algorithms, notably the
+  RandomForestRegressor. The model leverages historical temporal
+  features, including immediate past case counts (lag\_1, lag\_2) and
+  specific morbidity week indicators, to train on historical patterns
+  and project 1-week-ahead case trajectories and anticipated municipal
+  risk shifts.
+\item
+  The decision support phase translates complex predictive outputs,
+  historical threshold breaches, and real-time case volumes into
+  practical, user-facing intelligence. It generates automated priority
+  watchlists and risk-ranking categories (such as Surge, Rising, and
+  Stable) tailored for Barangay Health Workers (BHWs) and local health
+  authorities, enabling front-line workers to identify high-risk
+  barangays early and prioritize localized vector control interventions.
+\item
+  The system evaluation phase represents the final stage of the
+  architecture, encompassing performance validation and usability
+  assessment. It combines quantitative accuracy verification using error
+  metrics such as Root Mean Squared Error (RMSE) and Mean Absolute Error
+  (MAE) with qualitative evaluations, including System Usability Scale
+  (SUS) scoring and task completion tracking by health worker
+  evaluators, ensuring that the deployed framework meets both technical
+  predictive standards and practical operational usability requirements.
+\end{enumerate}
 
 \textbf{3.2 Methodology}
 
@@ -1135,25 +1095,25 @@ analysis (EDA), non-parametric statistical thresholding, and machine
 learning model integration tailored to the Talomo District
 epidemiological landscape.
 
-\paragraph{\texorpdfstring{\textbf{3.2.1 Data Acquisition, Provenance,
-and Preprocessing
-Pipeline}}{3.2.1 Data Acquisition, Provenance, and Preprocessing Pipeline}}\label{data-acquisition-provenance-and-preprocessing-pipeline}
+\paragraph{\texorpdfstring{\textbf{3.2.1 Data Acquisition and
+Preprocessing
+Pipeline}}{3.2.1 Data Acquisition and Preprocessing Pipeline}}\label{data-acquisition-and-preprocessing-pipeline}
 
 The foundational data infrastructure relies on multi-year local health
 surveillance records obtained directly from the City Health Office (CHO)
 in Talomo District. Following formal coordination and scoping
 discussions with local health surveillance officers, historical records
-spanning 2023 to 2026 (encompassing over 16,000 raw patient entries)
-were acquired. Dengue was selected over alternative vector-borne
-pathogens (such as Leptospirosis and Tuberculosis) due to its
-high-volume epidemiological tracking profile, making it optimal for
-early-warning threshold modeling.
+spanning 2023 to 2026 (encompassing over 16,000 raw patient entries) are
+acquired. Dengue is prioritized over alternative vector-borne pathogens
+(such as Leptospirosis and Tuberculosis) due to its high-volume
+epidemiological tracking profile, making it optimal for early-warning
+threshold modeling.
 
 Because data collection formats evolved across years, exemplified by
 schema variations ranging from detailed clinical classification columns
 in 2023 (ATENEO\_DENGUE\_2023.xlsx) to structured laboratory views in
 2024 (ATENEO\_DENGUE\_2024.xlsx) and compact weekly distributions in
-2025-2026, a rigorous parsing and harmonization pipeline was engineered
+2025-2026, a rigorous parsing and harmonization pipeline is engineered
 and executed in Python using the pandas library. Through this parsing
 and schema alignment algorithm, the preprocessing script systematically
 iterates through multi-year Excel sheets, standardizes disparate column
@@ -1172,7 +1132,7 @@ Mitigation}
 Exploratory data analysis of the multi-year municipal dengue
 surveillance registries (2023-2026) obtained from the Talomo District
 City Health Office (CHO) revealed structural data anomalies and
-reporting discrepancies that required systematic mitigation prior to
+reporting discrepancies that require systematic mitigation prior to
 baseline modeling. Furthermore, because institutional reporting coverage
 and data archiving protocols can vary across municipal health
 jurisdictions and annual reporting cycles, observed case volumes reflect
@@ -1184,14 +1144,14 @@ district\textquotesingle s annual spreadsheets, comprising a total of N
 = 16,020 patient records N\_2023 = 6,548 entries in 2023, N\_2024 =
 7,714 entries in 2024, N\_2025 = 224 entries in 2025, and N\_2026 =
 1,534 entries in 2026). Initial evaluations of these source spreadsheets
-demonstrated severe data irregularities across multiple reporting
+demonstrated significant data irregularities across multiple reporting
 cycles.
 
 \textbf{3.2.2.1 Identification of Structural Anomalies and
 Discrepancies}
 
-Initial profiling uncovered severe temporal inconsistencies within the
-multi-year archives. Specifically, within the 2023 dataset, exactly
+Initial profiling uncovered substancial temporal inconsistencies within
+the multi-year archives. Specifically, within the 2023 dataset, exactly
 6,547 out of 6,548 records (99.98\%) contained \#REF! spreadsheet
 reference errors in the Morbidity Month attribute field, leaving only 1
 valid month value. Relying solely on raw database queries without
@@ -1231,7 +1191,7 @@ against established epidemiological boundaries, removed duplicate case
 identifiers, and standardized district nomenclature across all reporting
 cycles.
 
-\textbf{3.2.2.3 Mathmatical Formulation of Epidemic Thresholds and Risk
+\textbf{3.2.2.3 Mathematical Formulation of Epidemic Thresholds and Risk
 States}
 
 To monitor transmission intensity, epidemic thresholds for week w were
@@ -1264,24 +1224,27 @@ consistent and bias-mitigated historical repository.
 
 To establish an early-warning risk stratification system without
 succumbing to threshold distortion typical of hyper-endemic outlier
-years, this study rejects parametric mean-variance methods in favor of a
-robust non-parametric 75th percentile (P75) baseline. To prevent data
-leakage and maintain a strict predictive evaluation design, the baseline
-pool utilizes a rolling historical framework; for example, when
-evaluating the 2026 test year, the baseline pool consists strictly of
-historical data from 2023 through 2025, completely excluding the current
-evaluation year from threshold construction.
-
-\textbf{3.2.3.1 Historical Baseline Window Mapping}
+years, this study does not utilize parametric mean-variance methods in
+favor of a robust non-parametric 75th percentile (P75) baseline. To
+prevent data leakage and maintain a strict predictive evaluation design,
+the baseline pool utilizes a rolling historical framework; for example,
+when evaluating the 2026 test year, the baseline pool consists strictly
+of historical data from 2023 through 2025, completely excluding the
+current evaluation year from threshold construction.
 
 To ensure transparency and reproducibility across all epidemiological
 evaluations, the system anchors its threshold calculations on a strictly
 defined multi-year historical archive. The lookup structure explicitly
 binds each test year to its corresponding non-overlapping historical
-baseline window (N=3):
+baseline window (N=3). Specifically, as detailed in \textbf{Table 3.1},
+the pipeline initiates testing in 2024 using a single-year baseline (N =
+1) for preliminary retrospective validation, scales to a two-year
+rolling window (N = 2) in 2025 to assess inter-annual endemic stability,
+and ultimately achieves a fully populated three-year archive (N = 3) for
+the primary 2026 prospective test year. :
 
-\textbf{Table 3.1} Historical Baseline Pool Structure for the
-Prospective Surveillance Pipeline
+\textbf{Table 3.1 Historical Baseline Pool Structure for the Prospective
+Surveillance Pipeline}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
@@ -1291,16 +1254,16 @@ Prospective Surveillance Pipeline
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2756}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-Evaluation Test Year
+\textbf{Evaluation Test Year}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Historical Baseline Years Pool (y ∈ Baseline)
+\textbf{Historical Baseline Years Pool (y ∈ Baseline)}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Sample Size (N)
+\textbf{Sample Size (N)}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Purpose in Surveillance Pipeline
+\textbf{Purpose in Surveillance Pipeline}
 \end{minipage} \\
 \begin{minipage}[b]{\linewidth}\raggedright
-2024
+\textbf{2024}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 2023
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1309,7 +1272,7 @@ Purpose in Surveillance Pipeline
 Initial retrospective validation using first-year historical baseline
 \end{minipage} \\
 \begin{minipage}[b]{\linewidth}\raggedright
-2025
+\textbf{2025}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 2023, 2024
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1318,7 +1281,7 @@ Initial retrospective validation using first-year historical baseline
 Inter-annual endemic stability assessment with a 2-year rolling baseline
 \end{minipage} \\
 \begin{minipage}[b]{\linewidth}\raggedright
-2026
+\textbf{2026}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 2023, 2024, 2025
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1333,11 +1296,11 @@ Primary prospective test year (fully populated 3-year baseline archive)
 \end{longtable}
 }
 
-\textbf{3.2.3.2 Handling of Missing and Incomplete Surveillance Data}
+\textbf{3.2.3.1 Handling of Missing and Incomplete Surveillance Data}
 
 Real-time public health surveillance inherently encounters operational
 reporting lags, administrative latencies, and incomplete morbidity weeks
-during active evaluation years. Within the LokalHealth architecture, the
+during active evaluation years. Within the program architecture, the
 handling of missing data is methodologically stratified between
 completed historical baselines and the active test year. For historical
 baseline years (2023-2025), which represent fully closed retrospective
@@ -1355,7 +1318,7 @@ bias, while temporal granularity is maintained by aligning weekly
 historical counts (C\_y,w) against exact ISO morbidity week integers
 (Weeks 1 through 52).
 
-\textbf{3.2.3.3 Statistical Behavior of Small Sample Sizes (N=3)}
+\textbf{3.2.3.2 Statistical Behavior of Small Sample Sizes (N=3)}
 
 Given the constraints of the multi-year archival record, baseline
 threshold calculations operate on a limited sample size of N=3 annual
@@ -1379,11 +1342,11 @@ ensuring that the computed threshold accurately reflects historical
 clustering patterns without making unsupported assumptions regarding
 normality or continuous distribution tails.
 
-\textbf{3.2.3.4 Operational Sensitivity Parameter and Staged Risk
+\textbf{3.2.3.3 Operational Sensitivity Parameter and Staged Risk
 Framework}
 
-The non-parametric threshold formulation successfully isolates baseline
-seasonal endemicity from anomalous epidemic surges, drawing support from
+The non-parametric threshold formulation isolates baseline seasonal
+endemicity from anomalous epidemic surges, drawing support from
 epidemiological literature that utilizes upper quartile baselines
 (Thayer et al., 2025; Nekorchuk et al., 2021). While traditional
 baseline methods like the WHO quartile approach rely on the 75th
@@ -1439,90 +1402,70 @@ hotspot visualization for local health decision-makers.
 
 \textbf{3.2.5 Hardware \& Software Environment Specifications}
 
-To ensure deployment stability and reproducibility, the LokalHealth
-surveillance platform was developed and tested locally on an ASUS
-VivoBook (M1403QA) equipped with an AMD Ryzen 5 5600H processor, 8.00 GB
-of RAM, and a 477 GB solid-state drive running Windows 11. The software
-environment is anchored by Python 3.12, utilizing Flask 3.1.3 as the
-core web framework, Scikit-Learn for random forest regression modeling,
-and SQLCipher for encrypted relational data storage. The complete
-configuration profile of the system environment is detailed in Table
-3.2.5.
+To ensure deployment stability, resource efficiency, and computational
+reproducibility, the program was developed, tested, and benchmarked on
+the local hardware and software configuration detailed in Table 3.2.
+Powered by an AMD Ryzen 5 5600H processor paired with 8.00 GB of RAM and
+a 477 GB solid-state drive running Windows 11 Home, the host workstation
+provides adequate parallel processing overhead to execute local-first
+database transactions and vector transformations without performance
+degradation.
 
-\textbf{Table 3.2} System Hardware and Software Environment Table
+As outlined in Table 3.2, the software stack leverages Python 3.12
+alongside Flask 3.1.3 to provide a lightweight WSGI routing layer, while
+Scikit-Learn 1.7.2 drives the Random Forest regression pipeline.
+Furthermore, the integration of SQLite with SQLCipher ensures that all
+underlying municipal epidemiological records remain encrypted at rest.
+Collectively, The hardware and software specifications keep the
+surveillance framework running efficiently, maintaining a resident set
+size below 150 MB and keeping API responses fast.
+
+\textbf{Table 3.2 System Hardware and Software Environment Table}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1571}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2340}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3157}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2933}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1543}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2428}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-Category
+\textbf{Category}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Component/Tool
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Specification/Version
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Description
+\textbf{Component/Tool}
 \end{minipage} \\
 \begin{minipage}[b]{\linewidth}\raggedright
-Hardware
+\textbf{Hardware}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Host Device \& CPU
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-ASUS VivoBook (AMD Ryzen 5 5600H, 3.30 GHz)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Primary workstation utilized for local server execution and model
-training.
 \end{minipage} \\
 \begin{minipage}[b]{\linewidth}\raggedright
-Hardware
+\textbf{Hardware}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 System Memory
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-8.00 GB RAM (3200 MT/s)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Dedicated working memory allocated for local runtime and data caching.
 \end{minipage} \\
 \begin{minipage}[b]{\linewidth}\raggedright
-Software
+\textbf{Hardware}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Local Storage
+\end{minipage} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Software}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Operating System
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Windows 11 Home (Version 25H2)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Host environment governing local application processes.
 \end{minipage} \\
 \begin{minipage}[b]{\linewidth}\raggedright
-Software
+\textbf{Software}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Backend Framework
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Flask 3.1.3 (Python 3.12)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Core WSGI framework handling routing, authentication, and business
-logic.
 \end{minipage} \\
 \begin{minipage}[b]{\linewidth}\raggedright
-Software
+\textbf{Software}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Machine Learning
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Scikit-Learn 1.7.2 (RandomForestRegressor)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Powers the predictive forecasting engine for weekly case projections.
 \end{minipage} \\
 \begin{minipage}[b]{\linewidth}\raggedright
-Software
+\textbf{Software}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Database \& Security
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-SQLite with SQLCipher (sqlcipher3)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Relational database engine enforcing robust at-rest encryption via
-environment variables.
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -1628,27 +1571,33 @@ rigid data stationarity transformations.
 
 \textbf{3.2.7.2 Hyperparameters and Tuning Strategy}
 
-The project repository follows a modular, production-ready directory
-layout separating configuration, application logic, secure storage, and
-testing fixtures.
+To optimize the predictive performance of the Random Forest regressor
+while guarding against overfitting on historical epidemiological
+records, a systematic hyperparameter tuning strategy is implemented.
 
-For fixed parameters, the random\_state is set to 42 to ensure
-deterministic reproducibility across experimental runs and validation
-folds, while the split quality is optimized using a squared error
-criterion. Standard defaults for minimum samples per split and leaf
-nodes are maintained to allow deep tree growth appropriate for moderate
-municipal surveillance datasets.
+For fixed configuration parameters, the random\_state is set to 42 to
+ensure deterministic reproducibility across experimental runs and
+validation folds, and node split quality is evaluated using a squared
+error (variance reduction) criterion.
 
-When configuring variable parameters, the number of estimators is
-evaluated over a grid of {[}50, 100, and 200{]}, and the maximum tree
-depth is tested across options of {[}none, 10, 20, and 30{]}. To prevent
-data leakage from future epidemic weeks into past training folds, the
-search strategy relies exclusively on time-series cross-validation using
-walk-forward validation principles.
+The search space for variable hyperparameters targets structural
+complexity and ensemble scale. Specifically, the number of estimators
+(n\_estimators) is evaluated across a discrete grid of \{50,100,200\} to
+balance ensemble stability and computational efficiency. Simultaneously,
+the maximum depth of the trees (max\_depth) is tested across options of
+\{None,10,20,30\} to control model capacity and prevent excessive tree
+expansion on fluctuating weekly case counts.
 
-.
+To preserve the chronological structure of epidemiological surveillance
+data and prevent data leakage from future epidemic weeks into past
+training folds, hyperparameter optimization relies exclusively on a
+time-series cross-validation framework using walk-forward validation
+principles. Candidate hyperparameter combinations are scored based on
+out-of-fold Root Mean Squared Error (RMSE), ensuring that the final
+selected configuration minimizes generalization error on unseen temporal
+sequences.
 
-\textbf{3.2.7.3 Evaluation and Computational Metrics}
+\textbf{3.2.7.3 Evaluation, Benchmarks, and Statistical Validation}
 
 Model performance is assessed using a dual framework combining
 epidemiological predictive accuracy and software efficiency metrics. For
@@ -1676,29 +1625,23 @@ ms for rapid REST API response times, while maintaining resident set
 size memory consumption below 150 MB to support lightweight deployment
 on standard municipal server hardware.
 
-\textbf{3.2.7.4 Statistical Comparison Tests}
-
 To rigorously validate whether the Random Forest model statistically
-outperforms naive persistence and linear baselines, paired difference
-tests are applied to the forecasting residuals. If residual
-distributions pass normality checks via the Shapiro-Wilk test (p
-\textgreater{} 0.05), a paired sample t-test is executed; otherwise, the
-Wilcoxon signed-rank test is utilized with an alpha = 0.05 significance
-threshold across all baseline comparisons.
-
-Alternatively, the Wilcoxon signed-rank test is utilized as a
-non-parametric option when forecast error distributions exhibit skewness
-or outliers typical of municipal epidemic reporting anomalies, with a
-standard significance threshold of alpha = 0.05 strictly enforced across
-evaluations.
+outperforms the naive persistence, linear regression, and historical
+seasonal median baselines, paired difference tests are applied to the
+forecasting residuals. Residual distributions are first evaluated for
+normality using the Shapiro-Wilk test (p \textgreater{} 0.05). If
+normality assumptions are satisfied, a paired sample t-test is executed;
+otherwise, the non-parametric Wilcoxon signed-rank test is utilized to
+account for skewness, heavy tails, or outliers typical of municipal
+epidemic reporting anomalies. A strict significance threshold of alpha =
+0.05 is enforced across all comparative evaluations.
 
 \textbf{3.2.8 System Evaluation and Validation}
 
 To measure both the operational efficiency and practical utility of the
 LokalHealth platform within primary care workflows, a structured
-evaluation protocol was established, encompassing task-based
-performance, standardized usability assessments, and health officer
-review.
+evaluation protocol is established, encompassing task-based performance,
+standardized usability assessments, and health officer review.
 
 Task completion tests were conducted to measure operational efficiency
 by tracking the time in seconds required for participating Barangay
@@ -1707,81 +1650,16 @@ specifically uploading batch data template files and querying barangay
 risk classifications within the local interface.
 
 To evaluate user acceptance and system interface design, the standard
-10-item System Usability Scale (SUS) questionnaire was administered to
+10-item System Usability Scale (SUS) questionnaire is administered to
 participating BHWs to quantify perceived system usability on a 0 to 100
 scale.
 
-Finally, practical relevance and decision-support consistency were
-assessed by recording expert evaluator agreement levels regarding the
-automated intervention priority watchlist against routine local health
-monitoring standards.
+Lastly, practical relevance and decision-support consistency are
+assessed by recording evaluator agreement levels regarding the automated
+intervention priority watchlist against routine local health monitoring
+standards.
 
-\textbf{3.3 Operational Framework}
 
-The operational framework illustrates the practical system
-implementation and end-to-end data pipeline of the LokalHealth
-application. As mapped in Figure 3.3, the architecture translates
-conceptual models into a functional web application designed for local
-health monitoring using official registries acquired from the City
-Health Office (CHO) in Talomo District. The framework establishes a
-structured, secure, and multi-tiered workflow spanning data ingestion,
-encrypted persistence, predictive analytics, and actionable decision
-support output.
-
-\includegraphics[width=6.22454in,height=4.69155in]{./media/image6.png}
-
-\textbf{Figure 3.3 Operational Framework}
-
-\textbf{3.3.1 Ingestion and Data Entry Stage}
-
-The system initiates operations through flexible data acquisition
-channels designed to accommodate both real-time operational workflows
-and historical archiving. It supports manual point-of-care logging for
-individual patient entries through secure web forms and batch dataset
-uploads supporting both Microsoft Excel (.xlsx) and comma-separated
-values (.csv) formats for bulk historical records. Upon receiving raw
-input files, the data ingestion module dynamically parses headers,
-standardizes column nomenclature across disparate record structures,
-handles missing or null attributes, and normalizes the schema into a
-uniform relational layout complete with automated case ID generation and
-morbidity week-month alignment.
-
-\textbf{3.3.2 Backend Processing and Database Layer}
-
-Once normalized, the system routes records simultaneously into a
-persistent SQLite relational storage layer and a Python-based analytical
-processing engine. To ensure data privacy and security compliance, the
-underlying database is protected via SQLCipher encryption at rest using
-secure passphrase configuration (DB\_PASSPHRASE). Simultaneously, the
-backend analytical engine powered by Pandas, NumPy, and Scikit-Learn
-continuously executes temporal trend computations, calculates historical
-75th percentile (P75) epidemic baseline thresholds across multi-year
-data, and drives the RandomForestRegressor machine learning module for
-weekly case forecasting.
-
-\textbf{3.3.3 Interface and Decision Support Output Stage}
-
-Built on a lightweight Flask web framework, the application delivers
-surveillance outputs through an interactive, role-based user interface.
-It helps public health teams and barangay health workers to monitor
-dengue incidence effectively by generating automated risk alerts,
-classifying barangay severity into operational risk tiers (Surge,
-Rising, Stable) based on active-week and year-to-date case volumes, and
-compiling downloadable yearly epidemiological reports in PDF and CSV
-formats to guide priority vector control interventions.
-
-\textbf{3.3.4 System Evaluation and Validation Stage}
-
-Following the generation of decision-support outputs, the framework
-incorporates a dedicated evaluation and validation module designed to
-measure operational utility, interface usability, and decision
-consistency. This stage formally captures quantitative and qualitative
-metrics through user testing sessions with Barangay Health Workers
-(BHWs) and health officers. Specifically, it records task completion
-durations during template ingestion and risk lookups, calculates
-standardized System Usability Scale (SUS) scores to evaluate
-user-interface efficiency, and gathers expert evaluator agreement
-ratings on automated intervention priority watchlists.
 
 \subsubsection{\texorpdfstring{\textbf{References}}{References}}\label{references}
 
