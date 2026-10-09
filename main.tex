@@ -1418,7 +1418,7 @@ Furthermore, the integration of SQLite with SQLCipher ensures that all
 underlying municipal epidemiological records remain encrypted at rest.
 Collectively, The hardware and software specifications keep the
 surveillance framework running efficiently, maintaining a resident set
-size below 150 MB and keeping API responses fast.
+size at around 155-160 MB and keeping API responses fast.
 
 \textbf{Table 3.2 System Hardware and Software Environment Table}
 
@@ -1479,7 +1479,7 @@ Database \& Security
 \textbf{3.2.6.1 Architectural Modularity and Directory Design}
 
 To ensure architectural maintainability, software reliability, and
-verifiable deployment, the LokalHealth surveillance platform is
+verifiable deployment, the program's surveillance platform is
 structured around a modular, production-ready directory layout that
 strictly enforces a separation of concerns. The root repository
 coordinates core system execution through a centralized entry point
@@ -1622,11 +1622,11 @@ Years\}), categorizing municipal risk conditions as follows:
 To complement predictive evaluation, system efficiency is benchmarked by
 ensuring training times per weekly incremental update remain under 500
 ms for rapid REST API response times, while maintaining resident set
-size memory consumption below 150 MB to support lightweight deployment
+size memory consumption around 155-160 MB to support lightweight deployment
 on standard municipal server hardware.
 
-To rigorously validate whether the Random Forest model statistically
-outperforms the naive persistence, linear regression, and historical
+To rigorously validate whether the Random Forest model can perform well against
+the naive persistence, linear regression, and historical
 seasonal median baselines, paired difference tests are applied to the
 forecasting residuals. Residual distributions are first evaluated for
 normality using the Shapiro-Wilk test (p \textgreater{} 0.05). If
